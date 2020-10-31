@@ -6,12 +6,14 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Footer from "./components/footer/Footer";
 import MainDetails from "./components/details/MainDetails";
+import MainList from './components/list/MainList'
 
 ReactDOM.render(
   <React.StrictMode>
     <Header />
     <BrowserRouter>
       <Route path="/details/:animalId" component={MainDetails} />
+      <Route path="/list" component={MainList} />
     </BrowserRouter>
     <Footer />
   </React.StrictMode>,
