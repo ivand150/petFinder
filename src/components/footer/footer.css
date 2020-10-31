@@ -1,0 +1,26 @@
+.section__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: solid;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #77cc6d;
+  color: white;
+  border-color: black;
+}
+
+.logo__footer {
+  display: flex;
+  align-items: center;
+}
+
+.contact-us {
+  margin-right: 15px;
+}
+
+.about-us {
+  margin-right: 25px;
+}
