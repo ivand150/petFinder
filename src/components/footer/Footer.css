@@ -7,7 +7,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-image: linear-gradient(to top, #77cc6d, #43803d 80%);
+    background-image: linear-gradient(to top, #77cc6d, #43803d 50%);
     color: white;
     position: absolute;
 }
