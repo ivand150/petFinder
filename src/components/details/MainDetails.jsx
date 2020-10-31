@@ -3,11 +3,12 @@ import './MainDetails.css';
 import Details from './Details';
 import SliderDetail from './SliderDetail';
 
-function MainDetails() {
+function MainDetails({match}) {
+    const animalId = match.params.animalId
     return (
         <main>
             <SliderDetail />
-            <Details />
+            <Details animalId={animalId} />
         </main>
     );
 }

@@ -1,40 +1,49 @@
-import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/action-types';
+import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher";
+import actionTypes from "../actions/action-types";
 
-const CHANGE = 'CHANGE';
+const CHANGE = "CHANGE";
+let _animal;
 let _token;
 
 class Store extends EventEmitter {
-    getToken() {
-        return _token;
-    }
+  getToken() {
+    debugger;
+    return _token;
+  }
 
-    addEventListener(callback) {
-        this.on(CHANGE, callback);
-    }
+  getAnimal() {
+    return _animal;
+  }
 
-    removeEventListener(callback) {
-        this.removeListener(CHANGE, callback);
-    }
+  addEventListener(callback) {
+    this.on(CHANGE, callback);
+  }
 
-    emitChange() {
-        this.emit(CHANGE);
-    }
+  removeEventListener(callback) {
+    this.removeListener(CHANGE, callback);
+  }
+
+  emitChange() {
+    this.emit(CHANGE);
+  }
 }
 
 const store = new Store();
 
 dispatcher.register((action) => {
-    switch (action.type) {
-        case actionTypes.REQUEST_TOKEN:
-            _token = action.payload;
-            store.emitChange();
-            break;
-
-        default:
-            break;
-    }
+  switch (action.type) {
+    case actionTypes.REQUEST_TOKEN:
+      _token = action.payload;
+      store.emitChange();
+      break;
+    case actionTypes.REQUEST_ANIMAL:
+      _animal = action.payload;
+      store.emitChange();
+      break;
+    default:
+      break;
+  }
 });
 
 export default store;
