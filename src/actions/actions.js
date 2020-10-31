@@ -16,7 +16,6 @@ async function requestToken() {
   });
 
   const data = await response.json();
-  debugger;
   //comprobar que devuelve token
   dispatcher.dispatch({
     type: actionTypes.REQUEST_TOKEN,
@@ -25,7 +24,6 @@ async function requestToken() {
 }
 
 async function requestAnimal(animalId) {
-  debugger;
   const response = await fetch(
     `https://api.petfinder.com/v2/animals/${animalId}`,
     {
