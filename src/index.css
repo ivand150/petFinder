@@ -12,6 +12,11 @@ code {
         monospace;
 }
 
+#root {
+    min-height: 700px;
+    position: relative;
+}
+
 main {
     padding-top: 90px;
 }
