@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import store from "../../stores/principal-store";
 import { requestToken, requestAnimal } from "../../actions/actions";
 
