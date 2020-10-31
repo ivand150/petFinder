@@ -35,7 +35,6 @@
     left: -15px;
     list-style-type: none;
     background-color: #77cc6d;
-    z-index: -10;
     width: 150px;
     text-align: center;
 }
@@ -46,13 +45,15 @@
 }
 
 .first-menu-button {
+    display: inline-block;
     background-color: inherit;
     outline: none;
     border: none;
-    padding: 20px 40px;
+    padding: 20px 0px;
     cursor: pointer;
     color: white;
     width: 100%;
+    text-decoration: none;
 }
 
 .search {

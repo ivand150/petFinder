@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import store from '../../stores/principal-store';
 import { burgerClick } from '../../actions/actions';
+import { Link } from 'react-router-dom';
 
 function BurgerButton() {
-    const firstMenu = ['Species', 'Contact us', 'Main Page'];
     const [burgerClicked, setBurgerClicked] = useState(false);
 
     useEffect(() => {
         store.addEventListener(handleChange);
-
-        return () => {
-            store.removeEventListener(handleChange);
-        };
-    });
-
-    function handleChange() {
-        setBurgerClicked(!burgerClicked);
         const firstMenu = document.getElementById('burger-firstMenu');
         if (burgerClicked) {
             firstMenu.style.left = '-15px';
         } else {
             firstMenu.style.left = '-300px';
         }
+
+        return () => {
+            store.removeEventListener(handleChange);
+        };
+    }, [burgerClicked]);
+
+    function handleChange() {
+        setBurgerClicked(!burgerClicked);
     }
 
     return (
@@ -36,20 +36,33 @@ function BurgerButton() {
                 menu
             </button>
             <ul id="burger-firstMenu" className="burger__menu">
-                {firstMenu.map((element, index) => {
-                    return (
-                        <li key={index + 1}>
-                            <button
-                                className="first-menu-button"
-                                id={`first-menu__${element
-                                    .replace(' ', '-')
-                                    .toLocaleLowerCase()}`}
-                            >
-                                {element}
-                            </button>
-                        </li>
-                    );
-                })}
+                <li key="1">
+                    <Link
+                        to=""
+                        className="first-menu-button"
+                        id="first-menu__species"
+                    >
+                        Species
+                    </Link>
+                </li>
+                <li key="2">
+                    <Link
+                        to=""
+                        className="first-menu-button"
+                        id="first-menu__contact-us"
+                    >
+                        Contact us
+                    </Link>
+                </li>
+                <li key="3">
+                    <Link
+                        to="/"
+                        className="first-menu-button"
+                        id="first-menu__main-page"
+                    >
+                        Main Page
+                    </Link>
+                </li>
             </ul>
         </div>
     );
