@@ -1,50 +1,49 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import store from '../../stores/principal-store';
-import {requestToken, requestAnimal} from '../../actions/actions'
+import { requestToken, requestAnimal } from '../../actions/actions';
 
-function Details({animalId}) {
-    const [token, setToken] = useState(store.getToken())
-    const [animal, setAnimal] = useState(store.getAnimal())
+function Details({ animalId }) {
+    const [token, setToken] = useState(store.getToken());
+    const [animal, setAnimal] = useState(store.getAnimal());
 
     useEffect(() => {
-        store.addEventListener(handleChange) 
+        store.addEventListener(handleChange);
 
         if (!token) {
             requestToken();
-        } else if(!animal) {
-            debugger;
+        } else if (!animal) {
             requestAnimal(animalId);
         }
 
-        return( () => {
+        return () => {
             store.removeEventListener(handleChange);
-        }) 
-        
-    }, [token, animal])
+        };
+    }, [token, animal]);
 
     function handleChange() {
-        setToken(store.getToken())
-        setAnimal(store.getAnimal())
+        setToken(store.getToken());
+        setAnimal(store.getAnimal());
     }
 
     return (
         <>
-        <section className="tags">
-        {animal?.tags.length > 0 &&  <>
-                <span>Tags:</span>
-                <div className="tag__names">
-                    {animal?.tags.map((tag) => {
-                        return <span className="tag__name">{tag}</span>;
-                    })}
-                </div>
-            </>
-                }
+            <section className="tags">
+                {animal?.tags.length > 0 && (
+                    <>
+                        <span>Tags:</span>
+                        <div className="tag__names">
+                            {animal?.tags.map((tag) => {
+                                return <span className="tag__name">{tag}</span>;
+                            })}
+                        </div>
+                    </>
+                )}
             </section>
-            
+
             <section className="details">
                 <div className="details__specie">
                     <span className="specie__label">Specie: </span>
-                <span className="specie__pet-specie">{`${animal?.species}`}</span>
+                    <span className="specie__pet-specie">{`${animal?.species}`}</span>
                 </div>
                 <div className="details__name">
                     <span className="name__label">Name: </span>
@@ -64,8 +63,8 @@ function Details({animalId}) {
                 </div>
                 <div className="details__description">
                     <span className="description__label">Description: </span>
-                    <span className="description__pet-description"> 
-                    {animal?.description && `${animal?.description}`}
+                    <span className="description__pet-description">
+                        {animal?.description && `${animal?.description}`}
                     </span>
                 </div>
             </section>
