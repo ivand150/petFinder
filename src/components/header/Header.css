@@ -1,0 +1,27 @@
+.header {
+    width: 100%;
+    border-bottom: 1px black solid;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+#burger-button {
+    padding: 15px;
+    outline: none;
+    border: none;
+    background-color: inherit;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+#search__input {
+    outline: none;
+}
+
+#search__input:focus {
+    outline: none;
+}
