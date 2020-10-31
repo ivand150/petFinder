@@ -4,6 +4,7 @@ import Details from './Details';
 import SliderDetail from './SliderDetail';
 import store from '../../stores/principal-store';
 import {requestToken, requestAnimal} from '../../actions/actions'
+import ScrollDetails from './ScrollDetail'
 
 function MainDetails({match}) {
     debugger;
@@ -36,6 +37,7 @@ function MainDetails({match}) {
         <main>
             <SliderDetail animal={animal} />
             <Details animal={animal} />
+            <ScrollDetails />
         </main>
     );
 }
