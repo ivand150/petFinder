@@ -8,7 +8,6 @@ let _token;
 
 class Store extends EventEmitter {
   getToken() {
-    debugger;
     return _token;
   }
 
