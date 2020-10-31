@@ -30,3 +30,11 @@
 .details > div {
   padding: 25px 0px;
 }
+
+.adopt-button {
+  background-color: tomato;
+  color: white;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
