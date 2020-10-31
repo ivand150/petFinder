@@ -47,16 +47,17 @@ function SliderDetail ({animal})  {
     <>
     
     <div className='slide'>
-        <aside className='slide__aside aside-left' onClick={() => plusSlides(-1)}><span className="material-icons">
-                chevron_left
-            </span></aside>
-            {animal?.photos.map((photo) => {
+    {animal?.photos.map((photo) => {
       return (
      <div className="mySlides fade" key={animal?.photo} >
       <img className='slide__image' alt='' key={animal?.photo}
           src={`${photo.full}`}/>
      </div>)
     })}
+        <aside className='slide__aside aside-left' onClick={() => plusSlides(-1)}><span className="material-icons">
+                chevron_left
+            </span></aside>
+            
         <aside className='slide__aside aside-right' onClick={() => plusSlides(1)}><span className="material-icons">
                 chevron_right
             </span></aside>

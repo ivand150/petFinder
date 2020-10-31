@@ -43,6 +43,8 @@ function Details({ animal }) {
                         {animal?.description && `${animal?.description}`}
                     </span>
                 </div>
+
+                <button className="adopt-button">Adopt me!</button>
             </section>
         </>
     );
