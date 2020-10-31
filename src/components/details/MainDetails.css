@@ -1,0 +1,32 @@
+.tags,
+.details {
+    padding: 30px;
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+}
+
+.tag__names {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag__name {
+    padding: 5px;
+    background-color: beige;
+    border-radius: 5px;
+    margin: 10px 15px 0px 0px;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.details {
+    width: 100%;
+    background-color: rgb(0, 97, 0);
+    color: white;
+}
+
+.details > div {
+    padding: 25px 0px;
+}

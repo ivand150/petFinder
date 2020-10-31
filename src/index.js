@@ -11,7 +11,7 @@ ReactDOM.render(
     <React.StrictMode>
         <Header />
         <BrowserRouter>
-            <Route path="/animal/details" component={MainDetails} />
+            <Route path="/details/:id" component={MainDetails} />
         </BrowserRouter>
         <Footer />
     </React.StrictMode>,

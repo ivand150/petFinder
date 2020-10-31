@@ -1,14 +1,16 @@
 import React from 'react';
 
 function Details() {
-    const tags = ['Cute', 'Intelligent', 'Playful', 'Affectionate'];
+    const tags = ['Cute', 'Intelligent', 'Playful', 'Affectionate', 'Big'];
     return (
         <>
             <section className="tags">
                 <span>Tags:</span>
-                {tags.map((tag) => {
-                    return <span>{tag}</span>;
-                })}
+                <div className="tag__names">
+                    {tags.map((tag) => {
+                        return <span className="tag__name">{tag}</span>;
+                    })}
+                </div>
             </section>
             <section className="details">
                 <div className="details__specie">
@@ -32,8 +34,10 @@ function Details() {
                     <span className="size__pet-size">Big</span>
                 </div>
                 <div className="details__description">
-                    <span className="description__label">Size: </span>
-                    <span className="description__pet-description">Big</span>
+                    <span className="description__label">Description: </span>
+                    <span className="description__pet-description">
+                        Limón is an amazing cat
+                    </span>
                 </div>
             </section>
         </>

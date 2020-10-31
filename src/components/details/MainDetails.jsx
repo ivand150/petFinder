@@ -1,4 +1,5 @@
 import React from 'react';
+import './MainDetails.css';
 import Details from './Details';
 
 function MainDetails() {

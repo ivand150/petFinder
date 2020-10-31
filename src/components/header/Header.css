@@ -1,9 +1,14 @@
 .header {
     width: 100%;
-    border-bottom: 1px black solid;
     padding: 15px;
     display: flex;
     align-items: center;
+    height: 50px;
+    background-color: #77cc6d;
+}
+
+.header__logo {
+    height: 45px;
 }
 
 #burger-button {
