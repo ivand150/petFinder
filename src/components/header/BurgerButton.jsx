@@ -37,13 +37,13 @@ function BurgerButton() {
             </button>
             <ul id="burger-firstMenu" className="burger__menu">
                 <li key="1">
-                    <Link
-                        to=""
+                    <button
                         className="first-menu-button"
                         id="first-menu__species"
+                        onClick=""
                     >
                         Species
-                    </Link>
+                    </button>
                 </li>
                 <li key="2">
                     <Link
