@@ -6,6 +6,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
     background-color: rgb(198, 228, 198);
+    margin-top: 20px;
 }
 
 ul {
@@ -21,6 +22,7 @@ ul {
 
 .pet-card__image {
     border-radius: 8px;
+    height: 250px;
 }
 
 .pet-card__details {
