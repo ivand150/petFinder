@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   height: 50px;
-  background-color: #254e58;
+  background-image: linear-gradient(#a1b5d8, #738290 50%);
   top: 0;
 }
 
