@@ -1,29 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react";
-import store from "../../stores/principal-store";
-import { requestToken, requestAnimal } from "../../actions/actions";
+import React from "react";
 
-function Details({ animalId }) {
-  const [token, setToken] = useState(store.getToken());
-  const [animal, setAnimal] = useState(store.getAnimal());
-
-  useEffect(() => {
-    store.addEventListener(handleChange);
-
-    if (!token) {
-      requestToken();
-    } else if (!animal) {
-      requestAnimal(animalId);
-    }
-
-    return () => {
-      store.removeEventListener(handleChange);
-    };
-  }, [token, animal]);
-
-  function handleChange() {
-    setToken(store.getToken());
-    setAnimal(store.getAnimal());
-  }
+function Details({ animal }) {
 
   return (
     <>
@@ -67,6 +44,8 @@ function Details({ animalId }) {
             {animal?.description && `${animal?.description}`}
           </span>
         </div>
+
+        <button className='adopt-button'>Adopt me!</button>
       </section>
     </>
   );

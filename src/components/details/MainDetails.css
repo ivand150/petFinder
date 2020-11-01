@@ -23,11 +23,18 @@
 }
 
 .details {
-  width: 100%;
   background-color: rgb(0, 97, 0);
   color: white;
 }
 
 .details > div {
   padding: 25px 0px;
+}
+
+.adopt-button {
+  background-color: tomato;
+  color: white;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
 }
