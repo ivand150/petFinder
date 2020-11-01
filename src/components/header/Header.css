@@ -9,6 +9,7 @@
   height: 50px;
   background-image: linear-gradient(#a1b5d8, #738290 50%);
   top: 0;
+  color: black;
 }
 
 .header__logo {
@@ -23,9 +24,10 @@
   padding: 15px;
   outline: none;
   border: none;
-  color: white;
+  color: black;
   background-color: inherit;
   margin-right: 10px;
+  color: inherit;
 }
 
 .burger__menu {
@@ -48,12 +50,15 @@
   border: none;
   padding: 20px 0px;
   cursor: pointer;
-  color: white;
   width: 100%;
   text-decoration: none;
   font: inherit;
+  color: inherit;
 }
 
+.burger.container:focus .burger__menu {
+  left: -15px;
+}
 .search {
   display: none;
 }
@@ -71,14 +76,14 @@
   padding: 10px;
   outline: none;
   background-color: inherit;
-  color: white;
   font-size: 14px;
   font: inherit;
+  color: inherit;
 }
 
 .header__dropdown-country option {
   background-color: #254e58;
-  color: white;
+  color: inherit;
 }
 
 .header__login {
@@ -88,8 +93,8 @@
   background: none;
   outline: none;
   font-size: 16px;
-  color: white;
   font: inherit;
+  color: inherit;
 }
 
 @media screen and (min-width: 600px) {
