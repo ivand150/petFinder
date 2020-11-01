@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { requestToken, requestAnimals } from "../../actions/actions";
-import store from "./../../stores/principal-store";
-import "./MainList.css";
-import Filters from "./Filters";
-import List from "./List";
+import React, { useEffect, useState } from 'react';
+import { requestToken, requestAnimals } from '../../actions/actions';
+import store from './../../stores/principal-store';
+import './MainList.css';
+import Filters from './Filters';
+import List from './List';
 
-function MainList({ match }) {
+function MainList() {
   const [token, setToken] = useState(store.getToken());
   const [animals, setAnimals] = useState(store.getAnimals());
-  const type = match.params.type;
-  const breed = match.params.breed;
-  const gender = match.params.gender;
-  const age = match.params.age;
+  const params = new URLSearchParams(window.location.search.substring(1));
+  const type = params.get('type');
+  const breed = params.get('breed');
+  const gender = params.get('gender');
+  const age = params.get('age');
 
   function handleChange() {
     setToken(store.getToken());
@@ -21,7 +22,7 @@ function MainList({ match }) {
     store.addEventListener(handleChange);
     if (!token) {
       requestToken();
-    } else if (!animals || animals.length === 0) {
+    } else {
       requestAnimals(type, breed, gender, age);
     }
     return () => store.removeEventListener(handleChange);
