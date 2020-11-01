@@ -1,9 +1,12 @@
 .principal-button {
-    border: 1px solid black;
-    background-color: #254e58;
-    outline: none;
-    color: white;
-    padding: 40px;
-    width: auto;
-    text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  color: white;
+  width: 150px;
+  height: 70px;
+  text-decoration: none;
+  margin: 5px;
+  box-sizing: border-box;
 }
