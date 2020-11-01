@@ -1,0 +1,33 @@
+.pet-card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-right: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+    background-color: rgb(198, 228, 198);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.pet-card__name {
+    margin-top: 10px;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}
+
+.pet-card__image {
+    border-radius: 8px;
+}
+
+.pet-card__details {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+}

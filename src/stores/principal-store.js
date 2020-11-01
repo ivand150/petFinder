@@ -5,6 +5,7 @@ import actionTypes from "../actions/action-types";
 const CHANGE = "CHANGE";
 let _animal;
 let _token;
+let animals = [];
 
 class Store extends EventEmitter {
   getToken() {
@@ -13,6 +14,10 @@ class Store extends EventEmitter {
 
   getAnimal() {
     return _animal;
+  }
+
+  getAnimals() {
+    return animals;
   }
 
   addEventListener(callback) {
@@ -39,6 +44,10 @@ dispatcher.register((action) => {
     case actionTypes.REQUEST_ANIMAL:
       _animal = action.payload;
       store.emitChange();
+      break;
+    case actionTypes.REQUEST_ANIMALS:
+      animals = action.payload;
+      store.emitChande();
       break;
     default:
       break;

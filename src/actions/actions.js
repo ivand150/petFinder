@@ -42,4 +42,23 @@ async function requestAnimal(animalId) {
   });
 }
 
-export { requestToken, requestAnimal };
+async function requestAnimals() {
+  const response = await fetch(
+    `https://api.petfinder.com/v2/animals/`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${store.getToken()}`,
+      },
+    }
+  );
+  const animals = await response.json();
+
+  dispatcher.dispatch({
+    type: actionTypes.REQUEST_ANIMALS,
+    payload: animals
+  })
+}
+
+export { requestToken, requestAnimal, requestAnimals };
