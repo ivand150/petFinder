@@ -63,27 +63,42 @@ function BurgerButton() {
       </ul>
       <ul id="burger-secondMenu" className="burger__menu">
         <li key="1">
-          <Link to="" className="menu-button">
+          <Link
+            to={{ pathname: '/list', search: '?type=dog' }}
+            className="menu-button"
+          >
             Dogs
           </Link>
         </li>
         <li key="2">
-          <Link to="" className="menu-button">
+          <Link
+            to={{ pathname: '/list', search: '?type=cat' }}
+            className="menu-button"
+          >
             Cats
           </Link>
         </li>
         <li key="3">
-          <Link to="/" className="menu-button">
+          <Link
+            to={{ pathname: '/list', search: '?type=horse' }}
+            className="menu-button"
+          >
             Horses
           </Link>
         </li>
         <li key="4">
-          <Link to="/" className="menu-button">
+          <Link
+            to={{ pathname: '/list', search: '?type=rabbit' }}
+            className="menu-button"
+          >
             Rabbits
           </Link>
         </li>
         <li key="5">
-          <Link to="/" className="menu-button">
+          <Link
+            to={{ pathname: '/list', search: '?type=small-furry' }}
+            className="menu-button"
+          >
             Small furry animals
           </Link>
         </li>
