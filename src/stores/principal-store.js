@@ -20,6 +20,10 @@ class Store extends EventEmitter {
     return _animals;
   }
 
+  removeLastComma(str) {
+    return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
+  }
+
   addEventListener(callback) {
     this.on(CHANGE, callback);
   }

@@ -28,3 +28,7 @@ main {
 .flex-spacer {
   flex: 1;
 }
+
+.horizontal-container {
+  display: flex;
+}

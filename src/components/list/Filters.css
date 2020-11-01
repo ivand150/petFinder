@@ -1,17 +1,21 @@
 .filter-container {
-    padding: 15px;
-    display: flex;
-    justify-content: space-around;
-    height: 40px;
-    background-image: linear-gradient(#a1b5d8, #738290 90%);
-    margin: 10px;
-    border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: auto;
+  background-image: linear-gradient(#a1b5d8, #738290 90%);
+  margin: 10px;
+  border-radius: 8px;
+  text-transform: capitalize;
 }
 
 .filter {
-    border: none;
-    padding: 10px;
-    outline: none;
-    background: none;
-    color: white;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  padding: 10px;
+  outline: none;
+  background: none;
+  color: white;
 }
