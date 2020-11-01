@@ -3,8 +3,9 @@
     display: flex;
     justify-content: space-around;
     height: 40px;
-    background-color: #77cc6d;
-    margin: auto;
+    background-image: linear-gradient(#a1b5d8, #738290 90%);
+    margin: 10px;
+    border-radius: 8px;
 }
 
 .filter {
@@ -12,4 +13,5 @@
     padding: 10px;
     outline: none;
     background: none;
+    color: white;
 }
