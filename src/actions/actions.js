@@ -2,8 +2,8 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 import store from '../stores/principal-store';
 
-const clientId = 'D0VMc2wkKULEd73mBJhIhVk7jiU1qx0UjWnqnYfPNdkuc1OEQR';
-const clientSecret = 'noTh3ruGSAiD3bWsSNeJsZnKAzvzQqsV7CQzol3P';
+const clientId = '0wChmPtR7VwHGnCDAQtXeTXKwfVrZ3oTxWANMswDDmSsQj7NGu';
+const clientSecret = 'Z9N1LC0C2b3PEry8VBabaytkr0KSLnkX2L75yAX1';
 
 async function requestToken() {
   const response = await fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -16,7 +16,6 @@ async function requestToken() {
   });
 
   const data = await response.json();
-
   dispatcher.dispatch({
     type: actionTypes.REQUEST_TOKEN,
     payload: data.access_token,
@@ -42,12 +41,6 @@ async function requestAnimal(animalId) {
   });
 }
 
-function burgerClick() {
-  dispatcher.dispatch({
-    type: actionTypes.BURGER_CLIC,
-  });
-}
-
 async function requestAnimals(type = '', breed = '', gender = '', age = '') {
   type = !type ? '' : type;
   breed = !breed ? '' : breed;
@@ -57,9 +50,9 @@ async function requestAnimals(type = '', breed = '', gender = '', age = '') {
   const response = await fetch(
     `https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}`,
     {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${store.getToken()}`,
       },
     }
@@ -68,8 +61,8 @@ async function requestAnimals(type = '', breed = '', gender = '', age = '') {
 
   dispatcher.dispatch({
     type: actionTypes.REQUEST_ANIMALS,
-    payload: animals.animals
-  })
+    payload: animals.animals,
+  });
 }
 
-export { requestToken, requestAnimal, burgerClick, requestAnimals };
+export { requestToken, requestAnimal, requestAnimals };
