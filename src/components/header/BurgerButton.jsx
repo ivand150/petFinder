@@ -1,71 +1,94 @@
-import React, { useState, useEffect } from 'react';
-import store from '../../stores/principal-store';
-import { burgerClick } from '../../actions/actions';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function BurgerButton() {
-    const [burgerClicked, setBurgerClicked] = useState(false);
+  let burgerClicked = false;
+  let speciesClicked = false;
 
-    useEffect(() => {
-        store.addEventListener(handleChange);
-        const firstMenu = document.getElementById('burger-firstMenu');
-        if (burgerClicked) {
-            firstMenu.style.left = '-15px';
-        } else {
-            firstMenu.style.left = '-300px';
-        }
-
-        return () => {
-            store.removeEventListener(handleChange);
-        };
-    }, [burgerClicked]);
-
-    function handleChange() {
-        setBurgerClicked(!burgerClicked);
+  function burgerClick() {
+    burgerClicked = !burgerClicked;
+    const firstMenu = document.getElementById('burger-firstMenu');
+    const secondMenu = document.getElementById('burger-secondMenu');
+    if (burgerClicked) {
+      firstMenu.style.left = '-15px';
+    } else {
+      firstMenu.style.left = '-300px';
+      secondMenu.style.left = '-300px';
     }
+  }
 
-    return (
-        <div id="burger-container">
-            <button
-                id="burger-button"
-                className="material-icons"
-                onClick={() => {
-                    burgerClick();
-                }}
-            >
-                menu
-            </button>
-            <ul id="burger-firstMenu" className="burger__menu">
-                <li key="1">
-                    <button
-                        className="first-menu-button"
-                        id="first-menu__species"
-                        onClick=""
-                    >
-                        Species
-                    </button>
-                </li>
-                <li key="2">
-                    <Link
-                        to=""
-                        className="first-menu-button"
-                        id="first-menu__contact-us"
-                    >
-                        Contact us
-                    </Link>
-                </li>
-                <li key="3">
-                    <Link
-                        to="/"
-                        className="first-menu-button"
-                        id="first-menu__main-page"
-                    >
-                        Main Page
-                    </Link>
-                </li>
-            </ul>
-        </div>
-    );
+  function speciesClick() {
+    speciesClicked = !speciesClicked;
+    const secondMenu = document.getElementById('burger-secondMenu');
+    if (burgerClicked) {
+      secondMenu.style.left = '-15px';
+    } else {
+      secondMenu.style.left = '-300px';
+    }
+  }
+
+  return (
+    <div id="burger-container">
+      <button
+        id="burger-button"
+        className="material-icons"
+        onClick={() => {
+          burgerClick();
+        }}
+      >
+        menu
+      </button>
+      <ul id="burger-firstMenu" className="burger__menu">
+        <li key="1">
+          <button
+            className="menu-button"
+            id="first-menu__species"
+            onClick={() => {
+              speciesClick();
+            }}
+          >
+            Species
+          </button>
+        </li>
+        <li key="2">
+          <Link to="" className="menu-button">
+            Contact us
+          </Link>
+        </li>
+        <li key="3">
+          <Link to="/" className="menu-button">
+            Main Page
+          </Link>
+        </li>
+      </ul>
+      <ul id="burger-secondMenu" className="burger__menu">
+        <li key="1">
+          <Link to="" className="menu-button">
+            Dogs
+          </Link>
+        </li>
+        <li key="2">
+          <Link to="" className="menu-button">
+            Cats
+          </Link>
+        </li>
+        <li key="3">
+          <Link to="/" className="menu-button">
+            Horses
+          </Link>
+        </li>
+        <li key="4">
+          <Link to="/" className="menu-button">
+            Rabbits
+          </Link>
+        </li>
+        <li key="5">
+          <Link to="/" className="menu-button">
+            Small furry animals
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
-
 export default BurgerButton;

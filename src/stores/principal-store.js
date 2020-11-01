@@ -5,8 +5,7 @@ import actionTypes from '../actions/action-types';
 const CHANGE = 'CHANGE';
 let _animal;
 let _token;
-let _burgerClick = false;
-let _animals = []
+let _animals = [];
 
 class Store extends EventEmitter {
   getToken() {
@@ -23,9 +22,6 @@ class Store extends EventEmitter {
 
   addEventListener(callback) {
     this.on(CHANGE, callback);
-  }
-  getBurgerClick() {
-    return _burgerClick;
   }
 
   removeEventListener(callback) {
@@ -47,10 +43,6 @@ dispatcher.register((action) => {
       break;
     case actionTypes.REQUEST_ANIMAL:
       _animal = action.payload;
-      store.emitChange();
-      break;
-    case actionTypes.BURGER_CLIC:
-      _burgerClick = !_burgerClick;
       store.emitChange();
       break;
     case actionTypes.REQUEST_ANIMALS:
