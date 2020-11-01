@@ -1,34 +1,105 @@
-import React from "react";
-import "./Filters.css";
+import React from 'react';
+import './Filters.css';
+import { requestAnimals } from '../../actions/actions';
+import store from '../../stores/principal-store';
 
-function Filters() {
-  const age = ["Age", "Any", "Young", "Baby"];
-  const breed = ["Breed", "Cats breed", "Dogs breed"];
-  const gender = ["Gender", "Female", "Male"];
+function Filters({ type }) {
+  const object = {
+    age: ['any', 'young', 'baby'],
+    breed: ['Cats breed', 'Dogs breed'],
+    gender: ['female', 'male'],
+  };
+
+  let urlString = {
+    age: '',
+    breed: '',
+    gender: '',
+  };
 
   return (
     <>
       <section className="filter-container">
-        <select id="filter-age" className="filter">
-          {age &&
-            age.map((option) => {
-              return <option key={option}>{option}</option>;
-            })}
-        </select>
+        <div className="horizontal-container">
+          <div id="filter-age" className="filter">
+            {object.age &&
+              object.age.map((option) => {
+                return (
+                  <label>
+                    <input
+                      type="checkbox"
+                      key={option}
+                      value={option}
+                      onChange={(event) => {
+                        urlString.age = event.target.checked
+                          ? urlString.age + `${event.target.value},`
+                          : urlString.age.replace(`${event.target.value},`, '');
+                        console.log(urlString.age);
+                      }}
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+          </div>
 
-        <select id="filter-breed" className="filter">
-          {breed &&
-            breed.map((option) => {
-              return <option key={option}>{option}</option>;
-            })}
-        </select>
+          <div id="filter-breed" className="filter">
+            {object.breed &&
+              object.breed.map((option) => {
+                return (
+                  <label>
+                    <input type="checkbox" key={option} value={option} />
+                    {option}
+                  </label>
+                );
+              })}
+          </div>
 
-        <select id="filter-gender" className="filter">
-          {gender &&
-            gender.map((option) => {
-              return <option key={option}>{option}</option>;
-            })}
-        </select>
+          <div id="filter-gender" className="filter">
+            {object.gender &&
+              object.gender.map((option) => {
+                return (
+                  <label>
+                    <input
+                      type="checkbox"
+                      key={option}
+                      value={option}
+                      onChange={(event) => {
+                        urlString.gender = event.target.checked
+                          ? urlString.gender + `${event.target.value},`
+                          : urlString.gender.replace(
+                              `${event.target.value},`,
+                              ''
+                            );
+                        console.log(urlString.gender);
+                      }}
+                    />
+                    {option}
+                  </label>
+                );
+              })}
+          </div>
+        </div>
+        <button
+          onClick={() => {
+            for (const property in urlString) {
+              urlString[property] = store.removeLastComma(urlString[property]);
+            }
+
+            requestAnimals(
+              type,
+              urlString.breed,
+              urlString.gender,
+              urlString.age
+            );
+            window.history.replaceState(
+              null,
+              '',
+              `/list?type=${type}&breed=${urlString.breed}&age=${urlString.age}&gender=${urlString.gender}`
+            );
+          }}
+        >
+          Aply filters
+        </button>
       </section>
     </>
   );
