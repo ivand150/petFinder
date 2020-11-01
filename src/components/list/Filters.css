@@ -1,0 +1,15 @@
+.filter-container {
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    background-color: #77cc6d;
+    margin: auto;
+}
+
+.filter {
+    border: none;
+    padding: 10px;
+    outline: none;
+    background: none;
+}
