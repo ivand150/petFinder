@@ -2,8 +2,8 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 import store from '../stores/principal-store';
 
-const clientId = 'D0VMc2wkKULEd73mBJhIhVk7jiU1qx0UjWnqnYfPNdkuc1OEQR';
-const clientSecret = 'noTh3ruGSAiD3bWsSNeJsZnKAzvzQqsV7CQzol3P';
+const clientId = '0wChmPtR7VwHGnCDAQtXeTXKwfVrZ3oTxWANMswDDmSsQj7NGu';
+const clientSecret = 'Z9N1LC0C2b3PEry8VBabaytkr0KSLnkX2L75yAX1';
 
 async function requestToken() {
   const response = await fetch('https://api.petfinder.com/v2/oauth2/token', {

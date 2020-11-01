@@ -2,9 +2,9 @@ import React from "react";
 import "./Filters.css";
 
 function Filters() {
-  const age = ["Age", "any", "young", "baby"];
-  const breed = ["Breed", "cats breed", "dogs breed"];
-  const gender = ["Gender", "femail", "male"];
+  const age = ["Age", "Any", "Young", "Baby"];
+  const breed = ["Breed", "Cats breed", "Dogs breed"];
+  const gender = ["Gender", "Female", "Male"];
 
   return (
     <>
