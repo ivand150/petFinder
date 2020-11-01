@@ -2,12 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: solid;
     height: 150px;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-image: linear-gradient(to top, #77cc6d, #43803d 50%);
+    background-image: linear-gradient(#88bdbc, #254e58 50%);
     color: white;
     position: absolute;
 }
