@@ -1,26 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { requestToken, requestAnimals } from "../../actions/actions";
-import store from "./../../stores/principal-store";
+import React from "react";
+
 import "./List.css";
 
-function List() {
-  const [token, setToken] = useState(store.getToken());
-  const [animals, setAnimals] = useState(store.getAnimals());
-
-  function handleChange() {
-    setToken(store.getToken());
-    setAnimals(store.getAnimals());
-  }
-  useEffect(() => {
-    store.addEventListener(handleChange);
-    if (!token) {
-      requestToken();
-    } else if (!animals || animals.length === 0) {
-      requestAnimals();
-    }
-    return () => store.removeEventListener(handleChange);
-  }, [token, animals]);
-
+function List({ animals }) {
   return (
     <>
       <section className="main-list-container">

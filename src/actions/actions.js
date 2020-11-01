@@ -48,9 +48,14 @@ function burgerClick() {
   });
 }
 
-async function requestAnimals(type = '', breed = '') {
+async function requestAnimals(type = '', breed = '', gender = '', age = '') {
+  type = !type ? '' : type;
+  breed = !breed ? '' : breed;
+  gender = !gender ? '' : gender;
+  age = !age ? '' : age;
+
   const response = await fetch(
-    `https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}`,
+    `https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}`,
     {
       method: "GET",
       headers: {
