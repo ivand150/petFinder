@@ -4,7 +4,6 @@ import { requestAnimals } from '../../actions/actions';
 
 function BurgerButton() {
   let burgerClicked = false;
-  let speciesClicked = false;
 
   function burgerClick() {
     burgerClicked = !burgerClicked;
@@ -19,13 +18,8 @@ function BurgerButton() {
   }
 
   function speciesClick() {
-    speciesClicked = !speciesClicked;
     const secondMenu = document.getElementById('burger-secondMenu');
-    if (burgerClicked) {
-      secondMenu.style.left = '-15px';
-    } else {
-      secondMenu.style.left = '-300px';
-    }
+    secondMenu.style.left = '-15px';
   }
 
   return (
@@ -65,6 +59,7 @@ function BurgerButton() {
       <ul id="burger-secondMenu" className="burger__menu">
         <li key="1">
           <Link
+            id="secondMenu__dogs"
             to={{ pathname: '/list', search: '?type=dog' }}
             className="menu-button"
             onClick={() => {
@@ -76,6 +71,7 @@ function BurgerButton() {
         </li>
         <li key="2">
           <Link
+            id="secondMenu__cats"
             to={{ pathname: '/list', search: '?type=cat' }}
             className="menu-button"
             onClick={() => {
@@ -87,6 +83,7 @@ function BurgerButton() {
         </li>
         <li key="3">
           <Link
+            id="secondMenu__horses"
             to={{ pathname: '/list', search: '?type=horse' }}
             className="menu-button"
             onClick={() => {
@@ -98,6 +95,7 @@ function BurgerButton() {
         </li>
         <li key="4">
           <Link
+            id="secondMenu__rabbits"
             to={{ pathname: '/list', search: '?type=rabbit' }}
             className="menu-button"
             onClick={() => {
@@ -109,6 +107,7 @@ function BurgerButton() {
         </li>
         <li key="5">
           <Link
+            id="secondMenu__small-animals"
             to={{ pathname: '/list', search: '?type=small-furry' }}
             className="menu-button"
             onClick={() => {
