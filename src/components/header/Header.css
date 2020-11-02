@@ -59,6 +59,7 @@
 .burger.container:focus .burger__menu {
   left: -15px;
 }
+
 .search {
   display: none;
 }
@@ -78,11 +79,14 @@
   background-color: inherit;
   font-size: 14px;
   font: inherit;
-  color: inherit;
+  color: #2e3150;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .header__dropdown-country option {
   background-color: #254e58;
+  font-size: 10px;
   color: inherit;
 }
 
@@ -94,7 +98,8 @@
   outline: none;
   font-size: 16px;
   font: inherit;
-  color: inherit;
+  font-weight: bold;
+  color: #2e3150;
 }
 
 @media screen and (min-width: 600px) {

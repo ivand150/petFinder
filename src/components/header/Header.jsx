@@ -25,7 +25,6 @@ function Header() {
             return <option key={option}>{option}</option>;
           })}
       </select>
-      <div className="flex-spacer"></div>
       <button className="header__login">Login</button>
     </header>
   );
