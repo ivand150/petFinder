@@ -7,7 +7,7 @@ function SliderDetail ({animal})  {
     useEffect(() => {
       if(animal) {
         showSlides(slideIndex);
-      }
+      } 
     })
 
     let slideIndex = 1;
@@ -54,17 +54,17 @@ function SliderDetail ({animal})  {
           src={`${photo.full}`}/>
      </div>)
     })}
-        <aside className='slide__aside aside-left' onClick={() => plusSlides(-1)}><span className="material-icons">
+        <aside className='slide__aside aside-left' id='aside-left' onClick={() => plusSlides(-1)}><span className="material-icons">
                 chevron_left
             </span></aside>
             
-        <aside className='slide__aside aside-right' onClick={() => plusSlides(1)}><span className="material-icons">
+        <aside className='slide__aside aside-right' id='aside-right' onClick={() => plusSlides(1)}><span className="material-icons">
                 chevron_right
             </span></aside>
         <ul className='slide__dots'>
             {
             animal?.photos.map((element, index) => {
-              return <li className='dot' key={index + 1} onClick={() => currentSlide(index + 1)}></li>
+              return <li className='dot' id={`dot${index}`} key={index + 1} onClick={() => currentSlide(index + 1)}></li>
             })
             }
         </ul>

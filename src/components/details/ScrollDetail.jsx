@@ -1,42 +1,44 @@
 import React from "react";
 import "./ScrollDetail.css";
 
-function ScrollDetail() {
+function ScrollDetail(animals) {
+  debugger;
+  let test = animals?.animals
   return (
     <>
       <div className="scroll">
-      <span class='related__title'>Related animals:</span>
+      <span className='related__title'>Related animals:</span>
         <section className="scrollable">    
           <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+            src={test[0]?.photos[0].medium}
             alt=""
             className="horisontal-images"
           />
           <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
-            alt=""
-            className="horisontal-images"
-          />
-
-          <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+            src={test[1]?.photos[0].medium}
             alt=""
             className="horisontal-images"
           />
 
           <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+            src={test[2]?.photos[0].medium}
+            alt=""
+            className="horisontal-images"
+          />
+
+          <img
+            src={test[3]?.photos[0].medium}
             alt=""
             className="horisontal-images"
           />
           <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+            src={test[4]?.photos[0].medium}
             alt="image1"
             className="horisontal-images"
           />
           <img
-            src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
-            alt=""
+            src={test[5]?.photos[0].medium}
+            alt=""  
             className="horisontal-images"
           />
         </section>
