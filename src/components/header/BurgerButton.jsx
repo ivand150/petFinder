@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { requestAnimals } from '../../actions/actions';
 
 function BurgerButton() {
   let burgerClicked = false;
@@ -66,6 +67,9 @@ function BurgerButton() {
           <Link
             to={{ pathname: '/list', search: '?type=dog' }}
             className="menu-button"
+            onClick={() => {
+              requestAnimals('dog');
+            }}
           >
             Dogs
           </Link>
@@ -74,6 +78,9 @@ function BurgerButton() {
           <Link
             to={{ pathname: '/list', search: '?type=cat' }}
             className="menu-button"
+            onClick={() => {
+              requestAnimals('cat');
+            }}
           >
             Cats
           </Link>
@@ -82,6 +89,9 @@ function BurgerButton() {
           <Link
             to={{ pathname: '/list', search: '?type=horse' }}
             className="menu-button"
+            onClick={() => {
+              requestAnimals('horse');
+            }}
           >
             Horses
           </Link>
@@ -90,6 +100,9 @@ function BurgerButton() {
           <Link
             to={{ pathname: '/list', search: '?type=rabbit' }}
             className="menu-button"
+            onClick={() => {
+              requestAnimals('rabbit');
+            }}
           >
             Rabbits
           </Link>
@@ -98,6 +111,9 @@ function BurgerButton() {
           <Link
             to={{ pathname: '/list', search: '?type=small-furry' }}
             className="menu-button"
+            onClick={() => {
+              requestAnimals('small-furry');
+            }}
           >
             Small furry animals
           </Link>

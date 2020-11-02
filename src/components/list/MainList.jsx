@@ -22,7 +22,7 @@ function MainList() {
     store.addEventListener(handleChange);
     if (!token) {
       requestToken();
-    } else {
+    } else if (!animals) {
       requestAnimals(type, breed, gender, age);
     }
     return () => store.removeEventListener(handleChange);
