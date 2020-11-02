@@ -27,6 +27,7 @@ async function requestToken() {
 }
 
 async function requestAnimal(animalId) {
+  console.log('Animal fetch');
   try {
     const response = await fetch(
       `https://api.petfinder.com/v2/animals/${animalId}`,
@@ -50,6 +51,7 @@ async function requestAnimal(animalId) {
 }
 
 async function requestAnimals(type = '', breed = '', gender = '', age = '') {
+  console.log('Animal List fetch');
   type = !type ? '' : type;
   breed = !breed ? '' : breed;
   gender = !gender ? '' : gender;

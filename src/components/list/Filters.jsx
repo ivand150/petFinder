@@ -85,7 +85,7 @@ function Filters({ type }) {
             for (const property in urlString) {
               urlString[property] = store.removeLastComma(urlString[property]);
             }
-
+            console.log('Aply filters clic');
             requestAnimals(
               type,
               urlString.breed,
