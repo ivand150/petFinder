@@ -1,47 +1,92 @@
 .tags,
 .details {
-    padding: 30px;
+  padding: 30px;
 }
 
 .tags {
-    display: flex;
-    flex-direction: column;
-    min-height: 63px;
+  display: flex;
+  flex-direction: column;
+  min-height: 63px;
 }
 
 .tag__names {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tag__name {
-    padding: 5px;
-    background-color: beige;
-    border-radius: 5px;
-    margin: 10px 15px 0px 0px;
-    box-shadow: 2px 2px 5px gray;
+  padding: 5px;
+  background-color: beige;
+  border-radius: 5px;
+  margin: 10px 15px 0px 0px;
+  box-shadow: 2px 2px 5px gray;
 }
 
-.details {
-    background-image: linear-gradient(
-        180deg,
-        white,
-        #88bdbc 5%,
-        #254e58,
-        #88bdbc 95%,
-        white
-    );
-    color: white;
+.card {
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
-.details > div {
-    padding: 25px 0px;
+.card-title.h5 {
+  color: white;
+  font-weight: 700;
 }
 
-.adopt-button {
-    background-color: tomato;
-    color: white;
-    height: 30px;
-    border: none;
-    border-radius: 5px;
+.card-subtitle.h6 {
+  color: #0558ac !important;
+}
+
+#details {
+  display: flex;
+  justify-content: center;
+  width: 95vw;
+}
+
+#donating {
+  display: flex;
+  justify-content: center;
+  width: 95vw;
+}
+
+#donating__card {
+  background-color: #006ed9;
+}
+
+.details-donating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+#donate-button {
+  background-color: white;
+  color: #006ed9;
+  border-radius: 99px;
+  cursor: pointer;
+  border: 2px white solid;
+}
+
+#donate-button:hover {
+  background-color: #006ed9;
+  border: 2px white solid;
+  color: white;
+}
+
+@media screen and (min-width: 900px) {
+  #details {
+    width: 60vw;
+    margin-left: 10px;
+  }
+
+  #donating {
+    width: 35vw;
+    margin-left: 10px;
+  }
+
+  .details-donating {
+    flex-direction: row;
+    justify-content: center;
+    align-items: initial;
+  }
 }

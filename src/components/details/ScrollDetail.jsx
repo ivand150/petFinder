@@ -1,14 +1,13 @@
-import React from "react";
-import "./ScrollDetail.css";
+import React from 'react';
+import './ScrollDetail.css';
 
 function ScrollDetail(animals) {
-  debugger;
-  let test = animals?.animals
+  let test = animals?.animals;
   return (
     <>
       <div className="scroll">
-      <span className='related__title'>Related animals:</span>
-        <section className="scrollable">    
+        <span className="related__title">Related animals:</span>
+        <section className="scrollable">
           <img
             src={test[0]?.photos[0].medium}
             alt=""
@@ -38,7 +37,7 @@ function ScrollDetail(animals) {
           />
           <img
             src={test[5]?.photos[0].medium}
-            alt=""  
+            alt=""
             className="horisontal-images"
           />
         </section>
