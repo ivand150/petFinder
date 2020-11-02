@@ -3,12 +3,13 @@ import './MainDetails.css';
 import Details from './Details';
 import SliderDetail from './SliderDetail';
 import store from '../../stores/principal-store';
-import { requestToken, requestAnimal } from '../../actions/actions';
+import { requestToken, requestAnimal, requestAnimals } from '../../actions/actions';
 import ScrollDetails from './ScrollDetail';
 
 function MainDetails({ match }) {
     const [token, setToken] = useState(store.getToken());
     const [animal, setAnimal] = useState(store.getAnimal());
+    const [animals, setAnimals] = useState(store.getAnimals())
     const animalId = match.params.animalId;
 
     useEffect(() => {
@@ -18,23 +19,28 @@ function MainDetails({ match }) {
             requestToken();
         } else if (!animal) {
             requestAnimal(animalId);
+        } else if (animal && animals.length < 1) {
+            console.log('request animals scroll')
+            const animalType = animal.type
+            requestAnimals(animalType)
         }
 
         return () => {
             store.removeEventListener(handleChange);
         };
-    }, [token, animal, animalId]);
+    }, [token, animal, animalId, animals]);
 
     function handleChange() {
         setToken(store.getToken());
         setAnimal(store.getAnimal());
+        setAnimals(store.getAnimals());
     }
 
     return (
         <main>
             <SliderDetail animal={animal} />
             <Details animal={animal} />
-            <ScrollDetails />
+            <ScrollDetails animals={animals}/>
         </main>
     );
 }

@@ -1,11 +1,11 @@
-import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/action-types';
+import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher";
+import actionTypes from "../actions/action-types";
 
-const CHANGE = 'CHANGE';
+const CHANGE = "CHANGE";
 let _animal;
 let _token =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6IjkzNjMwNmRlODJmY2RkZWEwOGQ3OWZkNjZlODk3N2FkYzk4ZGI0NjE5NmU4Zjg1ZDdhNjMwNzYxZTYzMTI3MjJlM2Q1NGE0YTkxYzgwNzI2IiwiaWF0IjoxNjA0MzA1MzE3LCJuYmYiOjE2MDQzMDUzMTcsImV4cCI6MTYwNDMwODkxNywic3ViIjoiIiwic2NvcGVzIjpbXX0.AT1NoVlHL0R0pFP-FOqAUltD0QLoFHgfW02auMrhHUkg83YdyK_JIaNdUyukp8KYz7XBfNuJPBtWvT2MizLSzyeQPJMQPluJSYl0e3dMTthvKKyo_trxsl9SJyg9ghwNIZtxmCrDPCI9R9eGod7Vulki1A2ZvIGcIktTnGI23aEXbd5gwtg2IMUPQPDXK0m-PK8kIQaEQDdOuI-CMH476DxMyUNIkWpqHfh1WuZ4_cZPI_krLSWZhq_phvuPTBSz8jRhQYU9vImByqb4NH7E5UwikP877IQZ-DyZlMDVLN9HHO_1ZH1eVsOHiE1fwIn6dSkB6YfQenv7ZUtJxQjtrA';
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwd0NobVB0UjdWd0hHbkNEQVF0WGVUWEt3ZlZyWjNvVHhXQU5Nc3dERG1Tc1FqN05HdSIsImp0aSI6IjMwMWVlM2M2MmU5ZWEyNTEwZGM1YzYxYzQzNDhiZmJhOTJlY2EyYmY2YjQ0Nzc3OTc2OTlkZTMwMjM2ODQ2Mzk4ZWNhZTNlM2MzYTJmZGFlIiwiaWF0IjoxNjA0MzEwOTkzLCJuYmYiOjE2MDQzMTA5OTMsImV4cCI6MTYwNDMxNDU5Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.OdjxEqzl9hIIsGGpX8x4Yn7QxRjEH5LHoR1eYRweb5zw8AyoTG30C3-AndAWkWi87OCY7l29rZwG8aICUtc24HPbjf9N_4TCer6Q0_50IoytrRyWfwvTXfbQofkHVldoJX-rz0VH0SCpWwZv5yvh42cpCX_L3GZqahaKZVKI8xoJ2I2AEpBagPM8LP2HOKRVSzxbEg28BfKKIWvVDgiqouDx_1V2A9lHiJX9Cs8xoIGSa5-Y0Txs1bTtxnN2CKnu64VsLgKUUCL8R5wObRbY2IKUhf2ER_eety31UVd5-uNzlfN3zPWfueR3fY15U_sBqiATvRMG8a7eMsYPcnQFrA";
 let _animals = [];
 
 class Store extends EventEmitter {
@@ -22,7 +22,7 @@ class Store extends EventEmitter {
   }
 
   removeLastComma(str) {
-    return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
+    return str.slice(-1) === "," ? str.slice(0, str.length - 1) : str;
   }
 
   addEventListener(callback) {
