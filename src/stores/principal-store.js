@@ -1,11 +1,11 @@
-import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/action-types';
+import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher";
+import actionTypes from "../actions/action-types";
 
-const CHANGE = 'CHANGE';
+const CHANGE = "CHANGE";
 let _animal;
 let _token =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6IjQ5NmFhM2VmYmY4ZjNlODE2OTgzOTA4NzdjYTc3ZWYzYjFmMjBiNjM2YTU4Nzk3MTgxYjExMTc4MTAyMWQ2OTcyODdkZjM3OGIxZTUxODgyIiwiaWF0IjoxNjA0MzQwNzk2LCJuYmYiOjE2MDQzNDA3OTYsImV4cCI6MTYwNDM0NDM5Niwic3ViIjoiIiwic2NvcGVzIjpbXX0.CWzi9uUTiJf_tuZ7JcHMlx793gPSU3eAJEmNMA6CnO1JY7yXKy47SIHxSiFWPZgIFCLaAUtIBbD77HtLng0d4-8tLJmW4k1ptUN_0IYl78JyySw2It7BkCTEIjhavne6ApNM01OEPihw7eNds-LzJJLOkjMrfWsf4YmOfNZxijRo3uaFZTg8tITgVWzf0pYv43mYriQSkhpRMjyOU2QwAV7x91Cw_ER4hUUuX4IDjO8zY44hQAvVQ8oeHuPh4fbI8G3Pp-jErqdMkBNvG3XHyMjW368bMvxCMip5IihmiqJ02V5TyfSFK1-uuUCFWBz05L5ndbpoZkIQwzR9WPDtmA';
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIwd0NobVB0UjdWd0hHbkNEQVF0WGVUWEt3ZlZyWjNvVHhXQU5Nc3dERG1Tc1FqN05HdSIsImp0aSI6Ijg5MzczMzhmZmYwMDc4ZmViYmQyM2NkNjFkNDkyOTQ2MTBjMzBkYTU5MmUxZjQ0OGI1ZGVhODZkYWE4Nzk0NWZkMmEwYjgxODYzZjQyZTZiIiwiaWF0IjoxNjA0MzQ0OTM0LCJuYmYiOjE2MDQzNDQ5MzQsImV4cCI6MTYwNDM0ODUzNCwic3ViIjoiIiwic2NvcGVzIjpbXX0.zaT46-I7fnjkKrKQVR0K5tMnMT1UC2VHWLFyRrSIk0q-aVbk2-1F84vY274WBYoUTaIda7FUTwLv9Eu2RNCuF7U5ecuFKQSO-tvqDjBVHRbtsK07liZkIPYD8eUTyKddXvDoHpHu-Io8aH36cb9RijYH_CSuV89v17yCM-ArVbQL-1mTejv9a53T1-Vv2hqd3GgKBHvcx7gsmdUOvJ3LPZMbT2RekIXO9hb_0NZeXTGkbz8vPM3xe2QJee0hVrpAIwZxnI5FUb_Jywih953x1WvRaFTe5-jVLi5jeJ_KaPzwf2pLWSqjvztwLaCQkIgoTB1zxEkSpfjfblEMW2SulQ";
 let _animals = [];
 let _test;
 
@@ -35,7 +35,7 @@ class Store extends EventEmitter {
   }
 
   removeLastComma(str) {
-    return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
+    return str.slice(-1) === "," ? str.slice(0, str.length - 1) : str;
   }
 
   addEventListener(callback) {
@@ -73,7 +73,7 @@ dispatcher.register((action) => {
       break;
 
     default:
-      _test = 'break';
+      _test = "break";
       store.emitChange();
       break;
   }
