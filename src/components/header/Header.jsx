@@ -1,9 +1,10 @@
-import React from "react";
-import BurgerButton from "./BurgerButton";
-import "./Header.css";
+import React from 'react';
+import BurgerButton from './BurgerButton';
+import Button from 'react-bootstrap/Button';
+import './Header.css';
 
 function Header() {
-  const countries = ["Mexico", "Canada", "USA"];
+  const countries = ['Mexico', 'Canada', 'USA'];
   return (
     <header className="header">
       <BurgerButton />
@@ -25,7 +26,7 @@ function Header() {
             return <option key={option}>{option}</option>;
           })}
       </select>
-      <button className="header__login">Login</button>
+      <Button variant="primary">Login</Button>
     </header>
   );
 }
