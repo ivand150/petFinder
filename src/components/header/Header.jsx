@@ -9,7 +9,7 @@ import './Header.css';
 
 function Header() {
   return (
-    <header className="header">
+    <header className="header" id="header-test">
       <BurgerButton />
       <div className="flex-spacer"></div>
       <Link to="/">
@@ -27,74 +27,82 @@ function Header() {
         <input id="search__input" type="text" placeholder="Search ..." />
       </div>
       <div className="flex-spacer"></div>
-      <DropdownButton id="dropdown-species" title="Select specie">
-        <Dropdown.Item className="species__options">
-          <Link
+      <Dropdown id="dropdown-species" title="Select specie">
+        <Dropdown.Toggle
+          className="header__dropdown-species"
+          id="dropdown-species__title"
+        >
+          Select specie
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item
+            as={Link}
             id="dropdown-species__dogs"
+            className="species__options menu-button"
             to={{ pathname: '/list', search: '?type=dog' }}
-            className="menu-button"
             onClick={() => {
               requestAnimals('dog');
             }}
           >
             Dogs
-          </Link>
-        </Dropdown.Item>
-        <Dropdown.Item className="species__options">
-          <Link
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            className="species__options menu-button"
             id="dropdown-species__cats"
             to={{ pathname: '/list', search: '?type=cat' }}
-            className="menu-button"
             onClick={() => {
               requestAnimals('cat');
             }}
           >
             Cats
-          </Link>
-        </Dropdown.Item>
-        <Dropdown.Item className="species__options">
-          <Link
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            className="species__options menu-button"
             id="dropdown-species__horses"
             to={{ pathname: '/list', search: '?type=horse' }}
-            className="menu-button"
             onClick={() => {
               requestAnimals('horse');
             }}
           >
             Horses
-          </Link>
-        </Dropdown.Item>
-        <Dropdown.Item className="species__options">
-          <Link
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            className="species__options menu-button"
             id="dropdown-species__rabbits"
             to={{ pathname: '/list', search: '?type=rabbit' }}
-            className="menu-button"
             onClick={() => {
               requestAnimals('rabbit');
             }}
           >
             Rabbits
-          </Link>
-        </Dropdown.Item>
-        <Dropdown.Item className="species__options">
-          <Link
+          </Dropdown.Item>
+          <Dropdown.Item
+            as={Link}
+            className="species__options menu-button"
             id="dropdown-species__small-animals"
             to={{ pathname: '/list', search: '?type=small-furry' }}
-            className="menu-button"
             onClick={() => {
               requestAnimals('small-furry');
             }}
           >
             Small furry animals
-          </Link>
-        </Dropdown.Item>
-      </DropdownButton>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <div className="flex-spacer"></div>
-      <DropdownButton id="dropdown-countries" title="Select country">
-        <Dropdown.Item className="countries__options">Mexico</Dropdown.Item>
-        <Dropdown.Item className="countries__options">Canada</Dropdown.Item>
-        <Dropdown.Item className="countries__options">USA</Dropdown.Item>
-      </DropdownButton>
+      <Dropdown>
+        <Dropdown.Toggle className="header__dropdown-country">
+          Select country
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item className="countries__options">Mexico</Dropdown.Item>
+          <Dropdown.Item className="countries__options">Canada</Dropdown.Item>
+          <Dropdown.Item className="countries__options">USA</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <Button variant="primary" id="header__login">
         Login
       </Button>
