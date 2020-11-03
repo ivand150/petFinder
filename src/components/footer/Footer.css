@@ -11,7 +11,7 @@
 
 .footer-container {
   display: flex;
-  padding: 30px 20px;
+  padding: 30px 20px 0px;
 }
 
 .footer-information {
@@ -43,6 +43,11 @@
 
 .about-us {
   display: none;
+}
+
+.about-us__text {
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
 .image__footer {
