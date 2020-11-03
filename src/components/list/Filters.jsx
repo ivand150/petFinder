@@ -1,19 +1,19 @@
-import React from "react";
-import "./Filters.css";
-import { requestAnimals } from "../../actions/actions";
-import store from "../../stores/principal-store";
+import React from 'react';
+import './Filters.css';
+import { requestAnimals } from '../../actions/actions';
+import store from '../../stores/principal-store';
 
 function Filters({ type }) {
   const object = {
-    age: ["any", "young", "baby"],
-    breed: ["Cats breed", "Dogs breed"],
-    gender: ["female", "male"],
+    age: ['any', 'young', 'baby'],
+    breed: ['Cats breed', 'Dogs breed'],
+    gender: ['female', 'male'],
   };
 
   let urlString = {
-    age: "",
-    breed: "",
-    gender: "",
+    age: '',
+    breed: '',
+    gender: '',
   };
 
   return (
@@ -32,8 +32,7 @@ function Filters({ type }) {
                       onChange={(event) => {
                         urlString.age = event.target.checked
                           ? urlString.age + `${event.target.value},`
-                          : urlString.age.replace(`${event.target.value},`, "");
-                        console.log(urlString.age);
+                          : urlString.age.replace(`${event.target.value},`, '');
                       }}
                     />
                     {option}
@@ -68,9 +67,8 @@ function Filters({ type }) {
                           ? urlString.gender + `${event.target.value},`
                           : urlString.gender.replace(
                               `${event.target.value},`,
-                              ""
+                              ''
                             );
-                        console.log(urlString.gender);
                       }}
                     />
                     {option}
@@ -94,7 +92,7 @@ function Filters({ type }) {
             );
             window.history.replaceState(
               null,
-              "",
+              '',
               `/list?type=${type}&breed=${urlString.breed}&age=${urlString.age}&gender=${urlString.gender}`
             );
           }}
