@@ -63,6 +63,7 @@
 
 .search {
   display: none;
+  margin-left: 200px;
 }
 
 #search__input {

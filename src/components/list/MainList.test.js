@@ -12,7 +12,11 @@ describe('main list', () => {
         expect(linkElement).toBeInTheDocument();
     });
     test('should', () => {
+        actions.requestAnimals = jest.fn()
+        store.setToken('hola')
+        store.setAnimals()
         store.emitChange()
+        expect(actions.requestAnimals).toHaveBeenCalled()
     })
 
     test('should request token', () => {

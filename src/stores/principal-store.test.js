@@ -2,7 +2,7 @@ import store from './principal-store';
 import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 
-describe.skip('Store functions', () => {
+describe('Store functions', () => {
   test('should be defined', () => {
     expect(store).toBeDefined();
   });

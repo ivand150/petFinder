@@ -9,9 +9,9 @@ function SliderDetail({ animal }) {
 				<Carousel>
 					<Carousel.Item>
 						<img
-							className='d-block w-100 slide__image'
-							src='https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/649f0410e7a316f5720a9deaea73b588/112815953-stock-vector-no-image-available-icon-flat-vector.jpg'
-							alt='First slide'
+							className="d-block w-100 slide__image"
+							src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/649f0410e7a316f5720a9deaea73b588/112815953-stock-vector-no-image-available-icon-flat-vector.jpg"
+							alt="First slide"
 						/>
 					</Carousel.Item>
 				</Carousel>
@@ -25,9 +25,9 @@ function SliderDetail({ animal }) {
 						return (
 							<Carousel.Item>
 								<img
-									className='d-block w-100 slide__image'
+									className="d-block w-100 slide__image"
 									src={`${photo.full}`}
-									alt='First slide'
+									alt="First slide"
 								/>
 							</Carousel.Item>
 						);

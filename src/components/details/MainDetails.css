@@ -1,5 +1,4 @@
-.tags,
-.details {
+.tags, .details {
   padding: 30px;
 }
 
@@ -28,12 +27,24 @@
 }
 
 .card-title.h5 {
-  color: white;
+  color: #006ed9;
   font-weight: 700;
+  font-size: 30px;
+  border-bottom: 2px solid rgb(214, 213, 213);
+  padding: 30px;
+  margin-bottom: 30px;
 }
 
 .card-subtitle.h6 {
   color: #0558ac !important;
+}
+
+.btn-primary {
+  outline: none;
+}
+
+.btn-primary:hover {
+  background-color: #3d8fe2;
 }
 
 #details {
@@ -78,15 +89,17 @@
     width: 60vw;
     margin-left: 10px;
   }
-
   #donating {
     width: 35vw;
     margin-left: 10px;
   }
-
   .details-donating {
     flex-direction: row;
     justify-content: center;
     align-items: initial;
+  }
+  .card {
+    width: 95vw;
+    margin-right: 40px;
   }
 }
