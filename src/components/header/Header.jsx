@@ -8,7 +8,6 @@ import { requestAnimals } from '../../actions/actions';
 import './Header.css';
 
 function Header() {
-  const countries = ['Mexico', 'Canada', 'USA'];
   return (
     <header className="header">
       <BurgerButton />
