@@ -1,27 +1,27 @@
-import { render, screen } from "@testing-library/react";
-import MainDetails from "./MainDetails";
-import store from "../../stores/principal-store";
-import { requestToken } from "../../actions/actions";
-import * as actions from "../../actions/actions";
+import { render, screen } from '@testing-library/react';
+import MainDetails from './MainDetails';
+import store from '../../stores/principal-store';
+import { requestToken } from '../../actions/actions';
+import * as actions from '../../actions/actions';
 
-describe("main details", () => {
+describe('main details', () => {
   beforeEach(() => {
-    render(<MainDetails match={{ params: { animalId: "15" } }} />);
+    render(<MainDetails match={{ params: { animalId: '15' } }} />);
   });
-  test("should render", () => {
-    const linkElement = screen.getByText(/chevron_right/i);
+  test('should render', () => {
+    const linkElement = screen.getByText(/Specie/i);
     expect(linkElement).toBeInTheDocument();
   });
-  test("should test handlechanger", () => {
+  test('should test handlechanger', () => {
     store.setAnimal({
-      description: "test",
-      breeds: { primary: "" },
-      tags: ["1", "2"],
-      photos: ["1", "2"],
+      description: 'test',
+      breeds: { primary: '' },
+      tags: ['1', '2'],
+      photos: ['1', '2'],
     });
     store.emitChange();
   });
-  test("should request token", () => {
+  test('should request token', () => {
     actions.requestToken = jest.fn();
     store.setToken();
     store.emitChange();
