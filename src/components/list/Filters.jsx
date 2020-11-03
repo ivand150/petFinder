@@ -2,12 +2,13 @@ import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
+import Button from 'react-bootstrap/Button';
 
 function Filters({ type }) {
 	const object = {
-		age: ['any', 'young', 'baby'],
-		breed: ['Cats breed', 'Dogs breed'],
-		gender: ['female', 'male']
+		age: ['adult', 'young', 'baby', 'senior'],
+		gender: ['female', 'male', 'unknown']
+
 	};
 
 	let urlString = {
