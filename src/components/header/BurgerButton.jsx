@@ -10,7 +10,7 @@ function BurgerButton() {
     const firstMenu = document.getElementById('burger-firstMenu');
     const secondMenu = document.getElementById('burger-secondMenu');
     if (burgerClicked) {
-      firstMenu.style.left = '-15px';
+      firstMenu.style.left = '-15px'; 
     } else {
       firstMenu.style.left = '-300px';
       secondMenu.style.left = '-300px';
@@ -46,12 +46,22 @@ function BurgerButton() {
           </button>
         </li>
         <li key="2">
-          <Link to="" className="menu-button">
+          <Link to="" className="menu-button" id='menu-button__Contact' onClick={() => {
+            const firstMenu = document.getElementById('burger-firstMenu');
+            const secondMenu = document.getElementById('burger-secondMenu');
+            firstMenu.style.left = '-300px';
+            secondMenu.style.left = '-300px';
+          }}>
             Contact us
           </Link>
         </li>
         <li key="3">
-          <Link to="/" className="menu-button">
+          <Link to="/" className="menu-button" id='menu-button__Main' onClick={() => {
+            const firstMenu = document.getElementById('burger-firstMenu');
+            const secondMenu = document.getElementById('burger-secondMenu');
+            firstMenu.style.left = '-300px';
+            secondMenu.style.left = '-300px';
+          }}>
             Main Page
           </Link>
         </li>
@@ -64,6 +74,10 @@ function BurgerButton() {
             className="menu-button"
             onClick={() => {
               requestAnimals('dog');
+              const firstMenu = document.getElementById('burger-firstMenu');
+              const secondMenu = document.getElementById('burger-secondMenu');
+              firstMenu.style.left = '-300px';
+              secondMenu.style.left = '-300px';
             }}
           >
             Dogs
@@ -76,6 +90,10 @@ function BurgerButton() {
             className="menu-button"
             onClick={() => {
               requestAnimals('cat');
+              const firstMenu = document.getElementById('burger-firstMenu');
+              const secondMenu = document.getElementById('burger-secondMenu');
+              firstMenu.style.left = '-300px';
+              secondMenu.style.left = '-300px';
             }}
           >
             Cats
@@ -88,6 +106,10 @@ function BurgerButton() {
             className="menu-button"
             onClick={() => {
               requestAnimals('horse');
+              const firstMenu = document.getElementById('burger-firstMenu');
+              const secondMenu = document.getElementById('burger-secondMenu');
+              firstMenu.style.left = '-300px';
+              secondMenu.style.left = '-300px';
             }}
           >
             Horses
@@ -100,6 +122,10 @@ function BurgerButton() {
             className="menu-button"
             onClick={() => {
               requestAnimals('rabbit');
+              const firstMenu = document.getElementById('burger-firstMenu');
+              const secondMenu = document.getElementById('burger-secondMenu');
+              firstMenu.style.left = '-300px';
+              secondMenu.style.left = '-300px';
             }}
           >
             Rabbits
@@ -112,6 +138,10 @@ function BurgerButton() {
             className="menu-button"
             onClick={() => {
               requestAnimals('small-furry');
+              const firstMenu = document.getElementById('burger-firstMenu');
+              const secondMenu = document.getElementById('burger-secondMenu');
+              firstMenu.style.left = '-300px';
+              secondMenu.style.left = '-300px';
             }}
           >
             Small furry animals
