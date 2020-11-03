@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-around;
   height: auto;
-  background-image: linear-gradient(#a1b5d8, #738290 90%);
+  background-color: #006ed9;
   margin: 10px;
   border-radius: 8px;
   text-transform: capitalize;
