@@ -41,17 +41,21 @@ function Filters({ type }) {
               })}
           </div>
 
-          <div id="filter-breed" className="filter">
-            {object.breed &&
-              object.breed.map((option) => {
-                return (
-                  <label>
-                    <input type="checkbox" key={option} value={option} />
-                    {option}
-                  </label>
-                );
-              })}
-          </div>
+					<div id='filter-breed' className='filter'>
+						{object.breed &&
+							object.breed.map((option) => {
+								return (
+									<label>
+										<input
+											type='checkbox'
+											key={option}
+											value={option}
+										/>
+										{option}
+									</label>
+								);
+							})}
+					</div>
 
           <div id="filter-gender" className="filter">
             {object.gender &&
