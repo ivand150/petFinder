@@ -1,11 +1,10 @@
-import { EventEmitter } from 'events';
-import dispatcher from '../dispatcher/dispatcher';
-import actionTypes from '../actions/action-types';
+import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher";
+import actionTypes from "../actions/action-types";
 
-const CHANGE = 'CHANGE';
+const CHANGE = "CHANGE";
 let _animal;
-let _token =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6ImFiNmQwZmE5NTZjNDBmYzk2YTkxOThmYjhkZWM1YTMwMjU3MzMzYTJlMzYzZDVjNjM1MDJhMjk4YTg0OTBhMGQxZWQ0MTE4Nzc2ZjViY2MwIiwiaWF0IjoxNjA0MzU0MjE2LCJuYmYiOjE2MDQzNTQyMTYsImV4cCI6MTYwNDM1NzgxNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.SEuTLtSfg7VD5ZZ95XQ9UI0uSVOa2hnf3CrLtUbnXNvlpaiyx1yrTl3V8_tFPj41dMa9aWzMEoMKiUiEZrUTf7lUO3wPG6vvRXnxtNRH-Y97sCDxiekR9wWSZx1VdrFjtNDCtgOFgvcScVaHuLN1EbM9W4vxof8oj11T9Y-JUa9U3y5gbb3ci-tInVmHbsN_PdBj61q3KUZ2eL1rHwZ1DDrEn-WPxPDEYlq5vsXKD4-bgd99NTbQROnFIy5-ADMcB7RQliap_fbVM01GrgG3V-hpxKDd1YqZirx9DtIr1gYYmT_lzr84ySaapHKQbPP6rJ5tTpSwxxESRzXYljxtaw';
+let _token ='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6ImFiNmQwZmE5NTZjNDBmYzk2YTkxOThmYjhkZWM1YTMwMjU3MzMzYTJlMzYzZDVjNjM1MDJhMjk4YTg0OTBhMGQxZWQ0MTE4Nzc2ZjViY2MwIiwiaWF0IjoxNjA0MzU0MjE2LCJuYmYiOjE2MDQzNTQyMTYsImV4cCI6MTYwNDM1NzgxNiwic3ViIjoiIiwic2NvcGVzIjpbXX0.SEuTLtSfg7VD5ZZ95XQ9UI0uSVOa2hnf3CrLtUbnXNvlpaiyx1yrTl3V8_tFPj41dMa9aWzMEoMKiUiEZrUTf7lUO3wPG6vvRXnxtNRH-Y97sCDxiekR9wWSZx1VdrFjtNDCtgOFgvcScVaHuLN1EbM9W4vxof8oj11T9Y-JUa9U3y5gbb3ci-tInVmHbsN_PdBj61q3KUZ2eL1rHwZ1DDrEn-WPxPDEYlq5vsXKD4-bgd99NTbQROnFIy5-ADMcB7RQliap_fbVM01GrgG3V-hpxKDd1YqZirx9DtIr1gYYmT_lzr84ySaapHKQbPP6rJ5tTpSwxxESRzXYljxtaw';
 let _animals = [];
 let _test;
 
@@ -35,7 +34,7 @@ class Store extends EventEmitter {
   }
 
   removeLastComma(str) {
-    return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
+    return str.slice(-1) === "," ? str.slice(0, str.length - 1) : str;
   }
 
   addEventListener(callback) {
@@ -73,7 +72,7 @@ dispatcher.register((action) => {
       break;
 
     default:
-      _test = 'break';
+      _test = "break";
       store.emitChange();
       break;
   }
