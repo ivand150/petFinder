@@ -19,8 +19,8 @@ function Filters({ type }) {
 		<>
 			<section className="filter-container">
 				<div className="horizontal-container">
-					<p>Age</p>
 					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Age</p>
 						{object.age &&
 							object.age.map((option) => {
 								return (
@@ -43,14 +43,16 @@ function Filters({ type }) {
 							})}
 					</ul>
 
-					<div id="filter-gender" className="filter">
-						<p>Gender</p>
+					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Gender</p>
 						{object.gender &&
 							object.gender.map((option) => {
 								return (
-									<label>
+									<li className="checkbox-li">
 										<input
 											type="checkbox"
+											id="checkboxOne"
+											className="inputBox"
 											key={option}
 											value={option}
 											onChange={(event) => {
@@ -61,12 +63,12 @@ function Filters({ type }) {
 															''
 													  );
 											}}
-										/>
-										{option}
-									</label>
+										></input>
+										<label for="checkboxOne">{option}</label>
+									</li>
 								);
 							})}
-					</div>
+					</ul>
 				</div>
 
 				<button

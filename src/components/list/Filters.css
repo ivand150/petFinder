@@ -2,7 +2,7 @@
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	align-items: center;
 	height: auto;
 	background-color: #006ed9;
 	margin: 10px;
@@ -41,6 +41,8 @@
 ul.ks-cboxtags {
 	list-style: none;
 	padding: 20px;
+	display: flex;
+	align-items: center;
 }
 
 ul.ks-cboxtags li label {
@@ -63,6 +65,7 @@ ul.ks-cboxtags li label {
 ul.ks-cboxtags li label {
 	padding: 8px 12px;
 	cursor: pointer;
+	width: 120px;
 }
 
 ul.ks-cboxtags li label::before {
@@ -114,4 +117,8 @@ ul.ks-cboxtags li input[type='checkbox']:focus + label {
 .checkbox-li {
 	display: flex;
 	position: relative;
+}
+
+.checkbox__text {
+	color: white;
 }
