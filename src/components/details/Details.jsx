@@ -1,6 +1,6 @@
-import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 function Details({ animal }) {
   return (
@@ -19,7 +19,7 @@ function Details({ animal }) {
       </section>
       <div className="details-donating">
         <section id="details">
-          <Card className="mb-4" style={{ width: '95vw' }}>
+          <Card className="mb-4" style={{ width: "95vw" }}>
             <Card.Body>
               <Card.Title>{animal?.name}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
@@ -39,11 +39,7 @@ function Details({ animal }) {
           </Card>
         </section>
         <section id="donating">
-          <Card
-            id="donating__card"
-            className="mb-4 p-4"
-            style={{ width: '95vw' }}
-          >
+          <Card id="donating__card" className="mb-4 p-4">
             <Card.Body>
               <Button
                 id="donate-button"
@@ -54,7 +50,10 @@ function Details({ animal }) {
               >
                 Donate!
               </Button>
-              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Img
+                variant="top"
+                src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+              />
             </Card.Body>
           </Card>
         </section>
