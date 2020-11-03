@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import './List.css';
+import { Link } from 'react-router-dom';
+import { requestAnimal } from './../../actions/actions';
 
 function List({ animals }) {
 	return (
@@ -14,7 +16,13 @@ function List({ animals }) {
 								key={index}
 								className="animal-card d-flex justify-content-center"
 							>
-								<Card className="m-3" style={{ width: '100%' }}>
+								<Card
+									as={Link}
+									to={`/details/${animal.id}`}
+									className="m-3"
+									style={{ width: '100%' }}
+									onClick={() => requestAnimal(animal.id)}
+								>
 									<Card.Body>
 										<div className="d-flex flex-column align-items-center">
 											<Card.Img
