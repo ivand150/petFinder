@@ -8,6 +8,7 @@ function Filters({ type }) {
 	const object = {
 		age: ['adult', 'young', 'baby', 'senior'],
 		gender: ['female', 'male', 'unknown']
+
 	};
 
 	let urlString = {
@@ -15,6 +16,25 @@ function Filters({ type }) {
 		breed: '',
 		gender: ''
 	};
+
+	function updateUrlObject(event, animalProperty, urlObject) {
+		urlObject[animalProperty] = event.target.checked
+			? urlObject[animalProperty] + `${event.target.value},`
+			: urlObject[animalProperty].replace(`${event.target.value},`, '');
+	}
+
+	function applyFilters(urlObject, type) {
+		for (const property in urlObject) {
+			urlObject[property] = store.removeLastComma(urlObject[property]);
+		}
+		console.log('Aply filters clic');
+		requestAnimals(type, urlObject.breed, urlObject.gender, urlObject.age);
+		window.history.replaceState(
+			null,
+			'',
+			`/list?type=${type}&breed=${urlObject.breed}&age=${urlObject.age}&gender=${urlObject.gender}`
+		);
+	}
 
 	return (
 		<>
@@ -30,9 +50,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.age = event.target.checked
-													? urlString.age + `${event.target.value},`
-													: urlString.age.replace(`${event.target.value},`, '');
+												updateUrlObject(event, 'age', urlString);
 											}}
 										/>
 										{option}
@@ -63,12 +81,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.gender = event.target.checked
-													? urlString.gender + `${event.target.value},`
-													: urlString.gender.replace(
-															`${event.target.value},`,
-															''
-													  );
+												updateUrlObject(event, 'gender', urlString);
 											}}
 										/>
 										{option}
@@ -77,29 +90,14 @@ function Filters({ type }) {
 							})}
 					</div>
 				</div>
-				<Button
-					variant="primary"
+				<button
 					className="button-apply"
 					onClick={() => {
-						for (const property in urlString) {
-							urlString[property] = store.removeLastComma(urlString[property]);
-						}
-						console.log('Aply filters clic');
-						requestAnimals(
-							type,
-							urlString.breed,
-							urlString.gender,
-							urlString.age
-						);
-						window.history.replaceState(
-							null,
-							'',
-							`/list?type=${type}&breed=${urlString.breed}&age=${urlString.age}&gender=${urlString.gender}`
-						);
+						applyFilters(urlString, type);
 					}}
 				>
-					Apply Filters
-				</Button>
+					Aply filters
+				</button>
 			</section>
 		</>
 	);
