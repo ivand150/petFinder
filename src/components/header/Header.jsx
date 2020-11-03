@@ -1,15 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BurgerButton from './BurgerButton';
-import Button from 'react-bootstrap/Button';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { requestAnimals } from '../../actions/actions';
-import './Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import BurgerButton from "./BurgerButton";
+import Button from "react-bootstrap/Button";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import { requestAnimals } from "../../actions/actions";
+import "./Header.css";
 
 function Header() {
   return (
-    <header className="header">
+    <header className="header" id="header-test">
       <BurgerButton />
       <Link to="/">
         <img
@@ -30,10 +30,10 @@ function Header() {
         <Dropdown.Item className="species__options">
           <Link
             id="dropdown-species__dogs"
-            to={{ pathname: '/list', search: '?type=dog' }}
+            to={{ pathname: "/list", search: "?type=dog" }}
             className="menu-button"
             onClick={() => {
-              requestAnimals('dog');
+              requestAnimals("dog");
             }}
           >
             Dogs
@@ -42,10 +42,10 @@ function Header() {
         <Dropdown.Item className="species__options">
           <Link
             id="dropdown-species__cats"
-            to={{ pathname: '/list', search: '?type=cat' }}
+            to={{ pathname: "/list", search: "?type=cat" }}
             className="menu-button"
             onClick={() => {
-              requestAnimals('cat');
+              requestAnimals("cat");
             }}
           >
             Cats
@@ -54,10 +54,10 @@ function Header() {
         <Dropdown.Item className="species__options">
           <Link
             id="dropdown-species__horses"
-            to={{ pathname: '/list', search: '?type=horse' }}
+            to={{ pathname: "/list", search: "?type=horse" }}
             className="menu-button"
             onClick={() => {
-              requestAnimals('horse');
+              requestAnimals("horse");
             }}
           >
             Horses
@@ -66,10 +66,10 @@ function Header() {
         <Dropdown.Item className="species__options">
           <Link
             id="dropdown-species__rabbits"
-            to={{ pathname: '/list', search: '?type=rabbit' }}
+            to={{ pathname: "/list", search: "?type=rabbit" }}
             className="menu-button"
             onClick={() => {
-              requestAnimals('rabbit');
+              requestAnimals("rabbit");
             }}
           >
             Rabbits
@@ -78,10 +78,10 @@ function Header() {
         <Dropdown.Item className="species__options">
           <Link
             id="dropdown-species__small-animals"
-            to={{ pathname: '/list', search: '?type=small-furry' }}
+            to={{ pathname: "/list", search: "?type=small-furry" }}
             className="menu-button"
             onClick={() => {
-              requestAnimals('small-furry');
+              requestAnimals("small-furry");
             }}
           >
             Small furry animals

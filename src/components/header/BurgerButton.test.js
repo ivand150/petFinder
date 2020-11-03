@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Route } from "react-router-dom";
 import BurgerButton from "./BurgerButton";
+import * as actions from "../../actions/actions";
 
 describe("Burger Button", () => {
   beforeEach(() => {
@@ -52,41 +53,41 @@ describe("Burger Button", () => {
     expect(secondMenu.style.left).toBe("-300px");
   });
 
-  test("Link Dogs should call onClick when clic", () => {
+  test("Link Dogs should call requestAnimals when clic", () => {
     const dogsButton = document.getElementById("secondMenu__dogs");
-    dogsButton.onclick = jest.fn();
+    actions.requestAnimals = jest.fn();
     dogsButton.click();
-    expect(dogsButton.onclick).toHaveBeenCalled();
+    expect(actions.requestAnimals).toHaveBeenCalledTimes(1);
   });
 
-  test("Link Cats should call onClick when clic", () => {
+  test("Link Cats should call requestAnimals when clic", () => {
     const catsButton = document.getElementById("secondMenu__cats");
-    catsButton.onclick = jest.fn();
+    actions.requestAnimals = jest.fn();
     catsButton.click();
-    expect(catsButton.onclick).toHaveBeenCalled();
+    expect(actions.requestAnimals).toHaveBeenCalledTimes(1);
   });
 
-  test("Link Horses should call onClick when clic", () => {
+  test("Link Horses should call requestAnimals when clic", () => {
     const horsesButton = document.getElementById("secondMenu__horses");
-    horsesButton.onclick = jest.fn();
+    actions.requestAnimals = jest.fn();
     horsesButton.click();
-    expect(horsesButton.onclick).toHaveBeenCalled();
+    expect(actions.requestAnimals).toHaveBeenCalledTimes(1);
   });
 
-  test("Link Rabbits should call onClick when clic", () => {
+  test("Link Rabbits should call requestAnimals when clic", () => {
     const rabbitsButton = document.getElementById("secondMenu__rabbits");
-    rabbitsButton.onclick = jest.fn();
+    actions.requestAnimals = jest.fn();
     rabbitsButton.click();
-    expect(rabbitsButton.onclick).toHaveBeenCalled();
+    expect(actions.requestAnimals).toHaveBeenCalledTimes(1);
   });
 
-  test("Link Small Animals should call onClick when clic", () => {
+  test("Link Small Animals should call requestAnimals when clic", () => {
     const smallAnimalsButton = document.getElementById(
       "secondMenu__small-animals"
     );
-    smallAnimalsButton.onclick = jest.fn();
+    actions.requestAnimals = jest.fn();
     smallAnimalsButton.click();
-    expect(smallAnimalsButton.onclick).toHaveBeenCalled();
+    expect(actions.requestAnimals).toHaveBeenCalledTimes(1);
   });
 
   test("burgerClick should be called", () => {
