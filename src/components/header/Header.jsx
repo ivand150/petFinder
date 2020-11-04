@@ -12,13 +12,13 @@ function Header() {
 	return (
 		<header className="header" id="header-test">
 			<BurgerButton />
-			<Link to="/">
+			<Link to="/" className="d-flex align-items-center header-link">
 				<img
 					className="header__logo"
 					src="https://trello-attachments.s3.amazonaws.com/5f9d3d8395a20040a815a80a/768x727/6b9e6b190008963e1377a82e5497b4c1/dogcat2.png"
 					alt="logo"
 				/>
-				<p class="logo-name">PetFinder</p>
+				<p className="logo-name">PetFinder</p>
 			</Link>
 			<div className="flex-spacer2"></div>
 			<div className="search">
