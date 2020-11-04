@@ -41,7 +41,7 @@ function Filters({ type }) {
 		<>
 			<section className="filter-container">
 				<div className="horizontal-container">
-					<ul class="ks-cboxtags">
+					<ul className="ks-cboxtags">
 						<p className="checkbox__text">Age</p>
 						{object.age &&
 							object.age.map((option, index) => {
@@ -63,7 +63,7 @@ function Filters({ type }) {
 							})}
 					</ul>
 
-					<ul class="ks-cboxtags">
+					<ul className="ks-cboxtags">
 						<p className="checkbox__text">Gender</p>
 						{object.gender &&
 							object.gender.map((option, index) => {

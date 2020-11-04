@@ -1,168 +1,167 @@
 .header {
-  position: fixed;
-  z-index: 100000;
-  width: 100%;
-  max-width: 100vw;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  height: 70px;
-  background-color: #006ed9;
-  top: 0;
-  color: white;
-  box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	z-index: 100000;
+	width: 100%;
+	max-width: 100vw;
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	height: 70px;
+	background-color: #006ed9;
+	top: 0;
+	color: white;
+	box-shadow: 0px 3px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .header__logo {
-  height: 45px;
+	height: 45px;
 }
 
 #burger-container {
-  position: relative;
+	position: relative;
 }
 
 #burger-button {
-  padding: 15px;
-  outline: none;
-  border: none;
-  color: black;
-  background-color: inherit;
-  margin-right: 10px;
-  color: inherit;
+	padding: 15px;
+	outline: none;
+	border: none;
+	color: black;
+	background-color: inherit;
+	margin-right: 10px;
+	color: inherit;
 }
 
 .burger__menu {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 65px;
-  left: -300px;
-  list-style-type: none;
-  background-color: #006ed9;
-  width: 150px;
-  text-align: center;
-  transition: 0.2s;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 65px;
+	left: -300px;
+	list-style-type: none;
+	background-color: #006ed9;
+	width: 150px;
+	text-align: center;
+	transition: 0.2s;
 }
 
 .menu-button {
-  display: inline-block;
-  background-color: inherit;
-  outline: none;
-  border: none;
-  padding: 20px 0px;
-  cursor: pointer;
-  width: 100%;
-  text-decoration: none;
-  font: inherit;
-  color: inherit;
+	display: inline-block;
+	background-color: inherit;
+	outline: none;
+	border: none;
+	padding: 20px 0px;
+	cursor: pointer;
+	width: 100%;
+	text-decoration: none;
+	font: inherit;
+	color: inherit;
 }
 
 .burger.container:focus .burger__menu {
-  left: -15px;
+	left: -15px;
 }
 
 .search {
-  display: none;
-  margin-left: 200px;
+	display: none;
 }
 
 #search__input {
-  outline: none;
+	outline: none;
 }
 
 #search__input:focus {
-  outline: none;
+	outline: none;
 }
 
 .header__dropdown-country,
 .header__dropdown-species {
-  border: none;
-  padding: 10px;
-  outline: none;
-  background-color: inherit;
-  font-size: 14px;
-  font: inherit;
-  color: inherit;
-  font-weight: bold;
-  margin-right: 10px;
-  font: 400 16px Arial;
+	border: none;
+	padding: 10px;
+	outline: none;
+	background-color: inherit;
+	font-size: 14px;
+	font: inherit;
+	color: inherit;
+	font-weight: bold;
+	margin-right: 10px;
+	font: 400 16px Arial;
 }
 
 #dropdown-countries,
 #dropdown-species {
-  background-color: #006ed9;
-  color: inherit;
-  border: none;
+	background-color: #006ed9;
+	color: inherit;
+	border: none;
 }
 
 #dropdown-species {
-  display: none;
+	display: none;
 }
 
 #header__login {
-  border: none;
-  padding: 15px;
-  margin: 0px 3vw 0px 1vw;
-  background: none;
-  outline: none;
-  font-size: 16px;
-  font: inherit;
-  font-weight: bold;
-  color: inherit;
-  font-weight: 600;
-  background-color: #006ed9;
+	border: none;
+	padding: 15px;
+	margin: 0px 3vw 0px 1vw;
+	background: none;
+	outline: none;
+	font-size: 16px;
+	font: inherit;
+	font-weight: bold;
+	color: inherit;
+	font-weight: 600;
+	background-color: #006ed9;
 }
 
 #header__login:focus {
-  outline: none !important;
+	outline: none !important;
 }
 
 .countries__options,
 .species__options {
-  background-color: #006ed9;
-  padding: 0.65rem 1.5rem;
-  color: white;
+	background-color: #006ed9;
+	padding: 0.65rem 1.5rem;
+	color: white;
 }
 
 .dropdown-menu.show {
-  padding: 0;
+	padding: 0;
 }
 
 @media screen and (min-width: 600px) {
-  .search {
-    display: flex;
-    align-items: center;
-    max-width: 200px;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #0078ef;
-  }
+	.search {
+		display: flex;
+		align-items: center;
+		max-width: 200px;
+		padding: 10px;
+		border-radius: 6px;
+		background-color: #0078ef;
+	}
 
-  .search:focus {
-    border: 1px rgb(0, 68, 136) solid;
-  }
+	.search:focus {
+		border: 1px rgb(0, 68, 136) solid;
+	}
 
-  #search__input {
-    width: 85%;
-    background-color: #0078ef;
-    color: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding-left: 6px;
-  }
+	#search__input {
+		width: 85%;
+		background-color: #0078ef;
+		color: rgba(255, 255, 255, 0.5);
+		border: none;
+		padding-left: 6px;
+	}
 
-  #search__input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-  }
+	#search__input::placeholder {
+		color: rgba(255, 255, 255, 0.5);
+	}
 
-  #search__icon {
-    color: rgba(255, 255, 255, 0.5);
-  }
+	#search__icon {
+		color: rgba(255, 255, 255, 0.5);
+	}
 
-  #burger-button {
-    display: none;
-  }
+	#burger-button {
+		display: none;
+	}
 
-  #dropdown-species {
-    display: block;
-  }
+	#dropdown-species {
+		display: block;
+	}
 }
