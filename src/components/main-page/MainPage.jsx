@@ -51,7 +51,7 @@ function MainPage() {
 					requestAnimals(null, null, null, null, 'adopted');
 				}}
 			>
-				Animals already adopted
+				Animals already adopted!
 			</Link>
 			<div className="volunteers-adoption-cards">
 				<Card className="main-page-cards">
