@@ -2,6 +2,7 @@ import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
+import Button from 'react-bootstrap/Button';
 
 function Filters({ type }) {
 	const object = {
@@ -80,14 +81,15 @@ function Filters({ type }) {
 							})}
 					</ul>
 				</div>
-				<button
+				<Button
+					variant="primary"
 					className="button-apply"
 					onClick={() => {
 						applyFilters(store.getUrlFilter(), type);
 					}}
 				>
 					Apply filters
-				</button>
+				</Button>
 			</section>
 		</>
 	);
