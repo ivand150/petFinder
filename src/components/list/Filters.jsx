@@ -5,7 +5,7 @@ import store from '../../stores/principal-store';
 
 function Filters({ type }) {
 	const object = {
-		age: ['adult', 'young', 'baby', 'senior'],
+		age: ['baby', 'young', 'adult', 'senior'],
 		gender: ['female', 'male', 'unknown']
 	};
 
