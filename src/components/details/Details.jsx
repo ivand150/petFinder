@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 function Details({ animal }) {
 	return (
@@ -34,7 +35,9 @@ function Details({ animal }) {
 							<Card.Text>{animal?.breeds.primary}</Card.Text>
 							<Card.Subtitle className="mb-2 text-muted">Size</Card.Subtitle>
 							<Card.Text>{animal?.size}</Card.Text>
-							<Button variant="primary">Adopt me!</Button>
+							<Link to="/adoption">
+								<Button variant="primary">Adopt me!</Button>
+							</Link>
 						</Card.Body>
 					</Card>
 				</section>
@@ -52,7 +55,7 @@ function Details({ animal }) {
 							</Button>
 							<Card.Img
 								variant="top"
-								src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9c013b390a4735863ccb17/6ccf02c311640e972469842d9ec378bc/1.jpg"
+								src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9bfce5c6ad214b224696c9/d1990c6a6508004187186855e9395ddf/IMG_7381.jpg"
 							/>
 						</Card.Body>
 					</Card>
