@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { requestAnimals } from '../../actions/actions';
+import store from '../../stores/principal-store';
 
 function BurgerButton() {
 	let burgerClicked = false;
@@ -86,6 +87,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('dog');
 							hideBurgerMenu();
+							store.resetFilterOnClick();
 						}}
 					>
 						Dogs
@@ -99,6 +101,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('cat');
 							hideBurgerMenu();
+							store.resetFilterOnClick();
 						}}
 					>
 						Cats
@@ -112,6 +115,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('horse');
 							hideBurgerMenu();
+							store.resetFilterOnClick();
 						}}
 					>
 						Horses
@@ -125,6 +129,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('rabbit');
 							hideBurgerMenu();
+							store.resetFilterOnClick();
 						}}
 					>
 						Rabbits
@@ -137,6 +142,7 @@ function BurgerButton() {
 						className="menu-button"
 						onClick={() => {
 							requestAnimals('small-furry');
+							store.resetFilterOnClick();
 						}}
 					>
 						Small furry animals

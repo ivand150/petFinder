@@ -5,10 +5,14 @@ import actionTypes from '../actions/action-types';
 const CHANGE = 'CHANGE';
 let _animal;
 let _token =
-	'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6ImM2ZmRmNGVkM2EzYWJiNDMzNjRlODQxMTBjOTFlZjBkZGYzNGE0YTdlOTAxOGY4MDhmNzgxZTM3ZGRiZGRjZmQ0NzdmZTcxNjkzMTg5NWQzIiwiaWF0IjoxNjA0NDM2MDYzLCJuYmYiOjE2MDQ0MzYwNjMsImV4cCI6MTYwNDQzOTY2Mywic3ViIjoiIiwic2NvcGVzIjpbXX0.Ck72mlNQEeHqOirQ1l_tpWzUfPyQb6zTcVuSlG9R0DeJ9M8jP03EDXOc6QzsY7CUd9AcTe0sZ1OayAAChGyUXm9rRxSxMczx58hd_xac1YnQKHB1a_eJ1fGclEEDQzQpe-HFu3a1t0RuUu64xmVMqfREhH41vWSkcGFcxSdlTqYBGwORJwKnzmea8HpBch54Ic06dEv3hjQDqstyMVdSDl5w9VWYcw647Y_o4RZF4e8nidZSQNAWCmdVo30dDp0DSzGljQLa4sYSRiVAqtDE5QV36u0Bp9Lxxz-Jh4MJBGo0vOiXC-OiTu_MGARU8z3qtt3PKNt4PO3_VWKqMFaEBQ';
+	'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6IjNlNDQyYzAxZDJmMjMxMDU2Mzc5M2NhOTgyOGI3NjA5M2MzM2M0NTZjN2I4NTI5YWJhMDJmMDRhN2U0MzgzYTYyZjdkNjhlNGRlNjNiYWI3IiwiaWF0IjoxNjA0NDkyMjQ0LCJuYmYiOjE2MDQ0OTIyNDQsImV4cCI6MTYwNDQ5NTg0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.KAEvHsB1xCuV-KFFMdAQWLlVDFPuuFufjd4uszrDEnbleRhK0uxncdY5wWa_IHq_wZH6yXvk3FAOp0whvZG6jkbJJSKq39uziOupImaNIAOzSbsVO4jkhF94EtGLTaCmCZdL2ERdj6yAoiOwNjF3pJx6mPZ7QmIlW4ukD_ulLvfHtSvtpM2OV9dAl9slm2Lvhv_WRxsdmsJwhzN_Xzk0WIvej6WIF6zb3M9ffuPx-Ln3XsuEojGsKyvSzy0aj54NuNc3tha0PS91vmuMIGCcpsGanfAMQU8bdOyN_E7Oj9aw1ylVjabk1T3OX2CsufIMfVsk9u16i760_yU9eqg9VQ';
 
 let _animals = [];
 let _test;
+let urlFilter = {
+	age: [],
+	gender: []
+};
 
 class Store extends EventEmitter {
 	setToken(token) {
@@ -51,8 +55,23 @@ class Store extends EventEmitter {
 		this.emit(CHANGE);
 	}
 
-	getTestVar() {
-		return _test;
+	getUrlFilter() {
+		return urlFilter;
+	}
+
+	resetFilters() {
+		for (let property in urlFilter) {
+			urlFilter[property] = [];
+		}
+	}
+
+	resetFilterOnClick() {
+		const filterArray = document.getElementsByClassName('inputBox');
+		for (let index = 0; index < filterArray.length; index++) {
+			filterArray[index].checked = false;
+		}
+
+		this.resetFilters();
 	}
 }
 

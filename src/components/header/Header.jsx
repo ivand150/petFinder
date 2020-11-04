@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { requestAnimals } from '../../actions/actions';
+import store from '../../stores/principal-store';
 import './Header.css';
 
 function Header() {
@@ -35,6 +36,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('dog');
+							store.resetFilterOnClick();
 						}}
 					>
 						Dogs
@@ -48,6 +50,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('cat');
+							store.resetFilterOnClick();
 						}}
 					>
 						Cats
@@ -61,6 +64,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('horse');
+							store.resetFilterOnClick();
 						}}
 					>
 						Horses
@@ -74,6 +78,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('rabbit');
+							store.resetFilterOnClick();
 						}}
 					>
 						Rabbits
@@ -87,6 +92,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('small-furry');
+							store.resetFilterOnClick();
 						}}
 					>
 						Small furry animals
