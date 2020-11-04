@@ -96,8 +96,6 @@ dispatcher.register((action) => {
 			break;
 
 		default:
-			_test = 'break';
-			store.emitChange();
 			break;
 	}
 });
