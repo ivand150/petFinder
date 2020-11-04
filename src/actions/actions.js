@@ -53,7 +53,7 @@ async function requestAnimal(animalId) {
 }
 
 async function requestAnimals(type = '', breed = '', gender = '', age = '') {
-	console.log('Animal List fetch');
+
 	type = !type ? '' : type;
 	breed = !breed ? '' : breed;
 	gender = !gender ? '' : gender;

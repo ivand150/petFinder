@@ -20,7 +20,7 @@
 	color: white;
 }
 
-.button-apply {
+.Button {
 	background-color: #b2b2bc85;
 	height: 40px;
 	width: 60px;
@@ -34,7 +34,7 @@
 	outline: none;
 }
 
-.button-apply:hover {
+.Button:hover {
 	background-color: #ccccdb85;
 }
 
@@ -82,13 +82,13 @@ ul.ks-cboxtags li label::before {
 	transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:checked + label::before {
+ul.ks-cboxtags li input[type='checkbox']:checked+label::before {
 	content: '\f00c';
 	transform: rotate(-360deg);
 	transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:checked + label {
+ul.ks-cboxtags li input[type='checkbox']:checked+label {
 	border: 2px solid #1bdbf8;
 	background-color: #12bbd4;
 	color: #fff;
@@ -99,7 +99,8 @@ ul.ks-cboxtags li input[type='checkbox'] {
 	position: absolute;
 	opacity: 0;
 }
-ul.ks-cboxtags li input[type='checkbox']:focus + label {
+
+ul.ks-cboxtags li input[type='checkbox']:focus+label {
 	border: 2px solid #e9a1ff;
 }
 

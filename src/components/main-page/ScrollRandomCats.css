@@ -1,0 +1,23 @@
+.scroll-cats {
+    margin: 25px 0px 20px 0px;
+    padding: 0px 15px 0px 0px;
+}
+
+.scrollable {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.horisontal-images {
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.scroll-cats__title {
+    margin-left: 15px;
+}
