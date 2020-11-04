@@ -49,15 +49,23 @@ async function requestAnimal(animalId) {
 	}
 }
 
-async function requestAnimals(type = '', breed = '', gender = '', age = '') {
+async function requestAnimals(
+	type = '',
+	breed = '',
+	gender = '',
+	age = '',
+	status = 'adoptable'
+) {
+	console.log('Animal List fetch');
 	type = !type ? '' : type;
 	breed = !breed ? '' : breed;
 	gender = !gender ? '' : gender;
 	age = !age ? '' : age;
+	status = !status ? 'adoptable' : status;
 
 	try {
 		const response = await fetch(
-			`https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}&limit=100`,
+			`https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}&limit=100&status=${status}`,
 			{
 				method: 'GET',
 				headers: {

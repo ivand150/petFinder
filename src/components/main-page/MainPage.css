@@ -40,6 +40,7 @@
 	text-decoration: none;
 }
 
+#adopted-animals-btn,
 #other-animals-btn {
 	width: 350px;
 }
@@ -84,6 +85,7 @@
 		flex-direction: row;
 	}
 
+	#adopted-animals-btn,
 	#other-animals-btn {
 		width: 510px;
 	}
@@ -96,9 +98,6 @@
 }
 
 @media screen and (min-width: 900px) {
-	#other-animals-btn {
-		width: 510px;
-	}
 }
 
 @media screen and (min-width: 1200px) {

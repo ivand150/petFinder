@@ -44,6 +44,16 @@ function MainPage() {
 			>
 				Find a pet
 			</Link>
+			<Link
+				to="/list"
+				className="principal-button"
+				id="adopted-animals-btn"
+				onClick={() => {
+					requestAnimals(null, null, null, null, 'adopted');
+				}}
+			>
+				Animals already adopted!
+			</Link>
 			<ScrollRandomCats />
 			<div className="volunteers-adoption-cards">
 				<Card className="main-page-cards">

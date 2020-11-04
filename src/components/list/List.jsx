@@ -34,7 +34,12 @@ function List({ animals }) {
 														: animal.photos[0].medium
 												}
 											/>
-											<Card.Title data-testid="name">{animal.name}</Card.Title>
+											<Card.Title
+												className="card-list-title"
+												data-testid="name"
+											>
+												{animal.name}
+											</Card.Title>
 										</div>
 										<div className="d-flex justify-content-around">
 											<div className="d-flex flex-column attributes">

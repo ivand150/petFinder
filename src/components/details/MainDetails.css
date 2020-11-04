@@ -1,105 +1,108 @@
-.tags, .details {
-  padding: 30px;
+.tags,
+.details {
+	padding: 30px;
 }
 
 .tags {
-  display: flex;
-  flex-direction: column;
-  min-height: 63px;
+	display: flex;
+	flex-direction: column;
+	min-height: 63px;
 }
 
 .tag__names {
-  display: flex;
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .tag__name {
-  padding: 5px;
-  background-color: beige;
-  border-radius: 5px;
-  margin: 10px 15px 0px 0px;
-  box-shadow: 2px 2px 5px gray;
+	padding: 5px;
+	background-color: beige;
+	border-radius: 5px;
+	margin: 10px 15px 0px 0px;
+	box-shadow: 2px 2px 5px gray;
 }
 
 .card {
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
 }
 
-.card-title.h5 {
-  color: #006ed9;
-  font-weight: 700;
-  font-size: 30px;
-  border-bottom: 2px solid rgb(214, 213, 213);
-  padding: 30px;
-  margin-bottom: 30px;
+.card-details-title {
+	color: #006ed9;
+	font-weight: 700;
+	text-align: center;
+	font-size: 30px;
+	border-bottom: 2px solid rgb(213, 213, 213);
+	margin-bottom: 30px;
+	height: 40px;
+	text-transform: capitalize;
 }
 
 .card-subtitle.h6 {
-  color: #0558ac !important;
+	color: #0558ac !important;
 }
 
 .btn-primary {
-  outline: none;
+	outline: none;
 }
 
 .btn-primary:hover {
-  background-color: #3d8fe2;
+	background-color: #3d8fe2;
 }
 
 #details {
-  display: flex;
-  justify-content: center;
-  width: 95vw;
+	display: flex;
+	justify-content: center;
+	width: 95vw;
 }
 
 #donating {
-  display: flex;
-  justify-content: center;
-  width: 95vw;
+	display: flex;
+	justify-content: center;
+	width: 95vw;
 }
 
 #donating__card {
-  background-color: #006ed9;
+	background-color: #006ed9;
 }
 
 .details-donating {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
 }
 
 #donate-button {
-  background-color: white;
-  color: #006ed9;
-  border-radius: 99px;
-  cursor: pointer;
-  border: 2px white solid;
+	background-color: white;
+	color: #006ed9;
+	border-radius: 99px;
+	cursor: pointer;
+	border: 2px white solid;
 }
 
 #donate-button:hover {
-  background-color: #006ed9;
-  border: 2px white solid;
-  color: white;
+	background-color: #006ed9;
+	border: 2px white solid;
+	color: white;
 }
 
 @media screen and (min-width: 900px) {
-  #details {
-    width: 60vw;
-    margin-left: 10px;
-  }
-  #donating {
-    width: 35vw;
-    margin-left: 10px;
-  }
-  .details-donating {
-    flex-direction: row;
-    justify-content: center;
-    align-items: initial;
-  }
-  .card {
-    width: 95vw;
-    margin-right: 40px;
-  }
+	#details {
+		width: 60vw;
+		margin-left: 10px;
+	}
+	#donating {
+		width: 35vw;
+		margin-left: 10px;
+	}
+	.details-donating {
+		flex-direction: row;
+		justify-content: center;
+		align-items: initial;
+	}
+	.card {
+		width: 95vw;
+		margin-right: 40px;
+	}
 }

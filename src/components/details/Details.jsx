@@ -22,7 +22,9 @@ function Details({ animal }) {
 				<section id="details">
 					<Card className="mb-4" style={{ width: '95vw' }}>
 						<Card.Body>
-							<Card.Title id="animal__name">{animal?.name}</Card.Title>
+							<Card.Title className="card-details-title" id="animal__name">
+								{animal?.name}
+							</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">
 								Description
 							</Card.Subtitle>
@@ -35,6 +37,10 @@ function Details({ animal }) {
 							<Card.Text>{animal?.breeds.primary}</Card.Text>
 							<Card.Subtitle className="mb-2 text-muted">Size</Card.Subtitle>
 							<Card.Text>{animal?.size}</Card.Text>
+							<Card.Subtitle className="mb-2 text-muted">Status</Card.Subtitle>
+							<Card.Text className="text-capitalize">
+								{animal?.status}
+							</Card.Text>
 							<Link to="/adoption">
 								<Button variant="primary">Adopt me!</Button>
 							</Link>
