@@ -3,16 +3,15 @@ import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 
 const CHANGE = 'CHANGE';
+let _urlFilter = {
+	age: [],
+	gender: []
+};
 let _animal;
 let _token =
 	'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJEMFZNYzJ3a0tVTEVkNzNtQkpoSWhWazdqaVUxcXgwVWpXbnFuWWZQTmRrdWMxT0VRUiIsImp0aSI6IjNlNDQyYzAxZDJmMjMxMDU2Mzc5M2NhOTgyOGI3NjA5M2MzM2M0NTZjN2I4NTI5YWJhMDJmMDRhN2U0MzgzYTYyZjdkNjhlNGRlNjNiYWI3IiwiaWF0IjoxNjA0NDkyMjQ0LCJuYmYiOjE2MDQ0OTIyNDQsImV4cCI6MTYwNDQ5NTg0NCwic3ViIjoiIiwic2NvcGVzIjpbXX0.KAEvHsB1xCuV-KFFMdAQWLlVDFPuuFufjd4uszrDEnbleRhK0uxncdY5wWa_IHq_wZH6yXvk3FAOp0whvZG6jkbJJSKq39uziOupImaNIAOzSbsVO4jkhF94EtGLTaCmCZdL2ERdj6yAoiOwNjF3pJx6mPZ7QmIlW4ukD_ulLvfHtSvtpM2OV9dAl9slm2Lvhv_WRxsdmsJwhzN_Xzk0WIvej6WIF6zb3M9ffuPx-Ln3XsuEojGsKyvSzy0aj54NuNc3tha0PS91vmuMIGCcpsGanfAMQU8bdOyN_E7Oj9aw1ylVjabk1T3OX2CsufIMfVsk9u16i760_yU9eqg9VQ';
 
 let _animals = [];
-let _test;
-let urlFilter = {
-	age: [],
-	gender: []
-};
 
 class Store extends EventEmitter {
 	setToken(token) {
@@ -54,19 +53,22 @@ class Store extends EventEmitter {
 	emitChange() {
 		this.emit(CHANGE);
 	}
+	setUrlFilter(urlFilter) {
+		_urlFilter = urlFilter;
+	}
 
 	getUrlFilter() {
-		return urlFilter;
+		return _urlFilter;
 	}
 
 	resetFilters() {
-		for (let property in urlFilter) {
-			urlFilter[property] = [];
+		for (let property in _urlFilter) {
+			_urlFilter[property] = [];
 		}
 	}
 
-	resetFilterOnClick() {
-		const filterArray = document.getElementsByClassName('inputBox');
+	resetFilterOnClick(className) {
+		const filterArray = document.getElementsByClassName(className);
 		for (let index = 0; index < filterArray.length; index++) {
 			filterArray[index].checked = false;
 		}
@@ -93,8 +95,6 @@ dispatcher.register((action) => {
 			break;
 
 		default:
-			_test = 'break';
-			store.emitChange();
 			break;
 	}
 });

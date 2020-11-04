@@ -36,7 +36,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('dog');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Dogs
@@ -50,7 +50,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('cat');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Cats
@@ -64,7 +64,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('horse');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Horses
@@ -78,7 +78,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('rabbit');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Rabbits
@@ -92,7 +92,7 @@ function Header() {
 						style={{ textDecoration: 'none' }}
 						onClick={() => {
 							requestAnimals('small-furry');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Small furry animals
