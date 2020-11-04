@@ -35,7 +35,7 @@
 	margin: 0;
 	padding: 0;
 	position: absolute;
-	top: 65px;
+	top: 60px;
 	left: -300px;
 	list-style-type: none;
 	background-color: #006ed9;
@@ -125,6 +125,10 @@
 
 .dropdown-menu.show {
 	padding: 0;
+}
+
+#first-menu__species {
+	outline: none;
 }
 
 @media screen and (min-width: 600px) {
