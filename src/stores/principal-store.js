@@ -42,10 +42,6 @@ class Store extends EventEmitter {
 			.slice(0, 20);
 	}
 
-	removeLastComma(str) {
-		return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
-	}
-
 	addEventListener(callback) {
 		this.on(CHANGE, callback);
 	}
