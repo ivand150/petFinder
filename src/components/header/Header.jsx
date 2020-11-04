@@ -19,6 +19,7 @@ function Header() {
 					alt="logo"
 				/>
 			</Link>
+			<p class="logo-name">PetFinder</p>
 			<div className="flex-spacer2"></div>
 			<div className="search">
 				<span id="search__icon" className="material-icons">
