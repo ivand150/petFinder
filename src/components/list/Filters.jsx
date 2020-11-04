@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
@@ -9,19 +9,20 @@ function Filters({ type }) {
 		gender: ['female', 'male', 'unknown']
 	};
 
-	let urlString = {
-		age: '',
-		breed: '',
-		gender: ''
-	};
-
 	function updateUrlObject(event, animalProperty, urlObject) {
-		urlObject[animalProperty] = event.target.checked
-			? urlObject[animalProperty] + `${event.target.value},`
-			: urlObject[animalProperty].replace(`${event.target.value},`, '');
+		if (event.target.checked) {
+			urlObject[animalProperty].push(`${event.target.value}`);
+		} else {
+			urlObject[animalProperty] = urlObject[animalProperty].filter(
+				(element) => {
+					return element !== `${event.target.value}`;
+				}
+			);
+		}
 	}
 
 	function applyFilters(urlObject, type) {
+		console.log(store.getUrlFilter());
 		for (const property in urlObject) {
 			urlObject[property] = store.removeLastComma(urlObject[property]);
 		}
@@ -30,7 +31,9 @@ function Filters({ type }) {
 		window.history.replaceState(
 			null,
 			'',
-			`/list?type=${type}&breed=${urlObject.breed}&age=${urlObject.age}&gender=${urlObject.gender}`
+			`/list?type=${type}&age=${urlObject.age.join(
+				','
+			)}&gender=${urlObject.gender.join(',')}`
 		);
 	}
 
@@ -51,7 +54,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												updateUrlObject(event, 'age', urlString);
+												updateUrlObject(event, 'age', store.getUrlFilter());
 											}}
 										></input>
 										<label htmlFor="checkboxOne">{option}</label>
@@ -73,7 +76,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												updateUrlObject(event, 'age', urlString);
+												updateUrlObject(event, 'gender', store.getUrlFilter());
 											}}
 										></input>
 										<label htmlFor="checkboxOne">{option}</label>
@@ -85,8 +88,7 @@ function Filters({ type }) {
 				<button
 					className="button-apply"
 					onClick={() => {
-						applyFilters(urlString, type);
-						console.log(urlString);
+						applyFilters(store.getUrlFilter(), type);
 					}}
 				>
 					Apply filters
