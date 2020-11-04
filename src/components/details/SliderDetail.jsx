@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './SliderDetail.css';
 import Carousel from 'react-bootstrap/Carousel';
 

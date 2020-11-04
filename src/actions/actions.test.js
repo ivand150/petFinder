@@ -1,84 +1,117 @@
 import { requestToken, requestAnimal, requestAnimals } from './actions';
-import actionTypes from './action-types';
 import dispatcher from '../dispatcher/dispatcher';
 
+jest.mock('../dispatcher/dispatcher');
+
 describe('actions functions', () => {
-  let testToken;
-  let testAnimal;
-  let testAnimals;
-  beforeEach(() => {
-    testToken = '';
-    testAnimal = {};
-    testAnimals = [{}];
-    dispatcher.register((action) => {
-      switch (action.type) {
-        case actionTypes.REQUEST_TOKEN:
-          testToken = action.payload;
-          break;
-        case actionTypes.REQUEST_ANIMAL:
-          testAnimal = action.payload;
-          break;
-        case actionTypes.REQUEST_ANIMALS:
-          testAnimals = action.payload;
-          break;
-        default:
-          testToken = 'error';
-          break;
-      }
-    });
-  });
-  describe('request token', () => {
-    test('should disptach token', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.resolve({
-          json: jest.fn().mockReturnValueOnce({ access_token: '1234' }),
-        });
-      });
-      await requestToken();
-      expect(testToken).toBe('1234');
-    });
-    test('shoould return null if promise rejected', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.reject();
-      });
-      expect(await requestToken()).toBe(null);
-    });
-  });
+	describe('requestToken', () => {
+		beforeEach(async () => {
+			global.fetch = jest.fn().mockImplementation(() => {
+				return Promise.resolve({
+					json: jest.fn().mockReturnValue({ access_token: '1234' })
+				});
+			});
+			await requestToken();
+		});
 
-  describe('request animal', () => {
-    test('should disptach animal', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.resolve({
-          json: jest.fn().mockReturnValueOnce({ animal: { name: 'cat' } }),
-        });
-      });
-      await requestAnimal();
-      expect(testAnimal).toEqual({ name: 'cat' });
-    });
+		test('should call fetch with the url "https://api.petfinder.com/v2/oauth2/token"', () => {
+			expect(fetch.mock.calls[0][0]).toBe(
+				'https://api.petfinder.com/v2/oauth2/token'
+			);
+		});
 
-    test('shoould return null if promise rejected', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.reject();
-      });
-      expect(await requestAnimal()).toBe(null);
-    });
-  });
+		test('should call fetch once', () => {
+			expect(fetch.mock.calls.length).toBe(1);
+		});
 
-  describe('request animals', () => {
-    test('should disptach animals', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.resolve({
-          json: jest.fn().mockReturnValueOnce({ animals: [{ name: 'cat' }] }),
-        });
-      });
-      await requestAnimals('cat', 'male', 'young', 'dog');
-      expect(testAnimals).toEqual([{ name: 'cat' }]);
-    });
-    test('shoould return null if promise rejected', async () => {
-      global.fetch = jest.fn().mockImplementationOnce(() => {
-        return Promise.reject();
-      });
-      expect(await requestAnimals()).toBe(null);
-    });
-  });
+		test('should call dispatch once', () => {
+			expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+		});
+
+		test('action.payload should be "1234"', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0].payload).toBe('1234');
+		});
+	});
+
+	describe('requestAnimal', () => {
+		beforeEach(async () => {
+			global.fetch = jest.fn().mockImplementation(() => {
+				return Promise.resolve({
+					json: jest.fn().mockReturnValue({ animal: { id: 12, name: 'cat' } })
+				});
+			});
+			await requestAnimal(12);
+		});
+
+		test('should call fetch with the url "https://api.petfinder.com/v2/animals/animalId"', () => {
+			expect(fetch.mock.calls[0][0]).toBe(
+				`https://api.petfinder.com/v2/animals/12`
+			);
+		});
+
+		test('should call fetch once', () => {
+			expect(fetch.mock.calls.length).toBe(1);
+		});
+
+		test('should call dispatch once', () => {
+			expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+		});
+
+		test('action.payload should be an object with id 12 and name "cat"', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0].payload).toEqual({
+				id: 12,
+				name: 'cat'
+			});
+		});
+	});
+
+	describe('requestAnimals', () => {
+		beforeEach(async () => {
+			global.fetch = jest.fn().mockImplementation(() => {
+				return Promise.resolve({
+					json: jest.fn().mockReturnValue({ animals: [{ name: 'cat' }] })
+				});
+			});
+			await requestAnimals('cat', 'shorthair', 'male', 'young');
+		});
+		test('should call fetch with the url "https://api.petfinder.com/v2/animals/animalId"', () => {
+			expect(fetch.mock.calls[0][0]).toBe(
+				'https://api.petfinder.com/v2/animals?type=cat&breed=shorthair&gender=male&age=young'
+			);
+		});
+
+		test('should call fetch once', () => {
+			expect(fetch.mock.calls.length).toBe(1);
+		});
+
+		test('should call dispatch once', () => {
+			expect(dispatcher.dispatch.mock.calls.length).toBe(1);
+		});
+
+		test('action.payload should be an array with one element', () => {
+			expect(dispatcher.dispatch.mock.calls[0][0].payload).toEqual([
+				{ name: 'cat' }
+			]);
+		});
+	});
+
+	describe('Promise rejects', () => {
+		beforeEach(() => {
+			global.fetch = jest.fn().mockImplementationOnce(() => {
+				return Promise.reject();
+			});
+		});
+
+		test('requestToken should return null if promise rejected', async () => {
+			expect(await requestToken()).toBe(null);
+		});
+
+		test('requestAnimal should return null if promise rejected', async () => {
+			expect(await requestAnimal()).toBe(null);
+		});
+
+		test('requestAnimals should return null if promise rejected', async () => {
+			expect(await requestAnimals()).toBe(null);
+		});
+	});
 });

@@ -2,7 +2,6 @@ import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
-import Button from 'react-bootstrap/Button';
 
 function Filters({ type }) {
 	const object = {
@@ -10,96 +9,90 @@ function Filters({ type }) {
 		gender: ['female', 'male', 'unknown']
 	};
 
-	let urlString = {
-		age: '',
-		breed: '',
-		gender: ''
-	};
+	function updateUrlObject(event, animalProperty, urlObject) {
+		if (event.target.checked) {
+			urlObject[animalProperty].push(`${event.target.value}`);
+		} else {
+			urlObject[animalProperty] = urlObject[animalProperty].filter(
+				(element) => {
+					return element !== `${event.target.value}`;
+				}
+			);
+		}
+	}
+
+	function applyFilters(urlObject, type) {
+		console.log(store.getUrlFilter());
+		for (const property in urlObject) {
+			urlObject[property] = store.removeLastComma(urlObject[property]);
+		}
+		console.log('Aply filters clic');
+		requestAnimals(type, urlObject.breed, urlObject.gender, urlObject.age);
+		window.history.replaceState(
+			null,
+			'',
+			`/list?type=${type}&age=${urlObject.age.join(
+				','
+			)}&gender=${urlObject.gender.join(',')}`
+		);
+	}
 
 	return (
 		<>
 			<section className="filter-container">
 				<div className="horizontal-container">
-					<div id="filter-age" className="filter">
+					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Age</p>
 						{object.age &&
-							object.age.map((option) => {
+							object.age.map((option, index) => {
 								return (
-									<label>
+									<li className="checkbox-li" key={index}>
 										<input
 											type="checkbox"
+											id="checkboxOne"
+											className="inputBox"
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.age = event.target.checked
-													? urlString.age + `${event.target.value},`
-													: urlString.age.replace(`${event.target.value},`, '');
+												updateUrlObject(event, 'age', store.getUrlFilter());
 											}}
-										/>
-										{option}
-									</label>
+										></input>
+										<label htmlFor="checkboxOne">{option}</label>
+									</li>
 								);
 							})}
-					</div>
+					</ul>
 
-					<div id="filter-breed" className="filter">
-						{object.breed &&
-							object.breed.map((option) => {
-								return (
-									<label>
-										<input type="checkbox" key={option} value={option} />
-										{option}
-									</label>
-								);
-							})}
-					</div>
-
-					<div id="filter-gender" className="filter">
+					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Gender</p>
 						{object.gender &&
-							object.gender.map((option) => {
+							object.gender.map((option, index) => {
 								return (
-									<label>
+									<li className="checkbox-li" key={index}>
 										<input
 											type="checkbox"
+											id="checkboxOne"
+											className="inputBox"
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.gender = event.target.checked
-													? urlString.gender + `${event.target.value},`
-													: urlString.gender.replace(
-															`${event.target.value},`,
-															''
-													  );
+												updateUrlObject(event, 'gender', store.getUrlFilter());
 											}}
-										/>
-										{option}
-									</label>
+										></input>
+										<label htmlFor="checkboxOne">{option}</label>
+									</li>
 								);
 							})}
-					</div>
+					</ul>
 				</div>
-				<Button
-					variant="primary"
+				<button
 					className="button-apply"
 					onClick={() => {
-						for (const property in urlString) {
-							urlString[property] = store.removeLastComma(urlString[property]);
-						}
-						console.log('Aply filters clic');
-						requestAnimals(
-							type,
-							urlString.breed,
-							urlString.gender,
-							urlString.age
-						);
-						window.history.replaceState(
-							null,
-							'',
-							`/list?type=${type}&breed=${urlString.breed}&age=${urlString.age}&gender=${urlString.gender}`
-						);
+						applyFilters(store.getUrlFilter(), type);
 					}}
 				>
-					Apply Filters
-				</Button>
+					Apply filters
+				</button>
 			</section>
 		</>
 	);
