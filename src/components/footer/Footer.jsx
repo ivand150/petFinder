@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 	return (
@@ -27,7 +28,9 @@ function Footer() {
 						</p>
 					</div>
 					<div className="footer_social_contact-us">
-						<div className="contact-us">Contact Us</div>
+						<Link to="/contact" style={{ textDecoration: 'none' }}>
+							<div className="contact-us">Contact Us</div>
+						</Link>
 						<ul className="footer-social">
 							<li className="social__items-list">
 								<i className="fab fa-facebook"></i>

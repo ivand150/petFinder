@@ -55,7 +55,7 @@ function BurgerButton() {
 				</li>
 				<li key="2">
 					<Link
-						to=""
+						to="/contact"
 						className="menu-button"
 						id="menu-button__Contact"
 						onClick={() => {
