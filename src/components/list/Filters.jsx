@@ -2,7 +2,6 @@ import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
-import Button from 'react-bootstrap/Button';
 
 function Filters({ type }) {
 	const object = {
@@ -42,9 +41,9 @@ function Filters({ type }) {
 					<ul class="ks-cboxtags">
 						<p className="checkbox__text">Age</p>
 						{object.age &&
-							object.age.map((option) => {
+							object.age.map((option, index) => {
 								return (
-									<li className="checkbox-li">
+									<li className="checkbox-li" key={index}>
 										<input
 											type="checkbox"
 											id="checkboxOne"
@@ -55,7 +54,7 @@ function Filters({ type }) {
 												updateUrlObject(event, 'age', urlString);
 											}}
 										></input>
-										<label for="checkboxOne">{option}</label>
+										<label htmlFor="checkboxOne">{option}</label>
 									</li>
 								);
 							})}
@@ -64,9 +63,9 @@ function Filters({ type }) {
 					<ul class="ks-cboxtags">
 						<p className="checkbox__text">Gender</p>
 						{object.gender &&
-							object.gender.map((option) => {
+							object.gender.map((option, index) => {
 								return (
-									<li className="checkbox-li">
+									<li className="checkbox-li" key={index}>
 										<input
 											type="checkbox"
 											id="checkboxOne"
@@ -77,7 +76,7 @@ function Filters({ type }) {
 												updateUrlObject(event, 'age', urlString);
 											}}
 										></input>
-										<label for="checkboxOne">{option}</label>
+										<label htmlFor="checkboxOne">{option}</label>
 									</li>
 								);
 							})}
