@@ -44,7 +44,6 @@ function MainPage() {
 			>
 				Find a pet
 			</Link>
-<<<<<<< HEAD
 			<Link
 				to="/list"
 				className="principal-button"
@@ -55,9 +54,7 @@ function MainPage() {
 			>
 				Animals already adopted!
 			</Link>
-=======
 			<ScrollRandomCats />
->>>>>>> 5538c9301440e896b89a5c6eae9c220b9044bb34
 			<div className="volunteers-adoption-cards">
 				<Card className="main-page-cards">
 					<Card.Img
