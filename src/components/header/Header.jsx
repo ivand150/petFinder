@@ -18,8 +18,8 @@ function Header() {
 					src="https://trello-attachments.s3.amazonaws.com/5f9d3d8395a20040a815a80a/768x727/6b9e6b190008963e1377a82e5497b4c1/dogcat2.png"
 					alt="logo"
 				/>
+				<p class="logo-name">PetFinder</p>
 			</Link>
-			<p class="logo-name">PetFinder</p>
 			<div className="flex-spacer2"></div>
 			<div className="search">
 				<span id="search__icon" className="material-icons">
