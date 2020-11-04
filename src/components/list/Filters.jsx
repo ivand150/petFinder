@@ -8,7 +8,6 @@ function Filters({ type }) {
 	const object = {
 		age: ['adult', 'young', 'baby', 'senior'],
 		gender: ['female', 'male', 'unknown']
-
 	};
 
 	let urlString = {
@@ -96,7 +95,7 @@ function Filters({ type }) {
 						applyFilters(urlString, type);
 					}}
 				>
-					Aply filters
+					Apply filters
 				</button>
 			</section>
 		</>
