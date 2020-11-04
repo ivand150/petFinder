@@ -61,7 +61,7 @@ async function requestAnimals(type = '', breed = '', gender = '', age = '') {
 
 	try {
 		const response = await fetch(
-			`https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}`,
+			`https://api.petfinder.com/v2/animals?type=${type}&breed=${breed}&gender=${gender}&age=${age}&limit=100`,
 			{
 				method: 'GET',
 				headers: {
@@ -76,6 +76,7 @@ async function requestAnimals(type = '', breed = '', gender = '', age = '') {
 			type: actionTypes.REQUEST_ANIMALS,
 			payload: animals.animals
 		});
+		console.log(animals);
 	} catch (error) {
 		console.log(error);
 		return null;

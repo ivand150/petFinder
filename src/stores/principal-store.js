@@ -35,11 +35,11 @@ class Store extends EventEmitter {
 	}
 
 	getAnimals() {
-		return _animals;
-	}
-
-	removeLastComma(str) {
-		return str.slice(-1) === ',' ? str.slice(0, str.length - 1) : str;
+		return _animals
+			.filter((element) => {
+				return element.photos.length > 0;
+			})
+			.slice(0, 20);
 	}
 
 	addEventListener(callback) {

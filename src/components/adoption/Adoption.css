@@ -1,0 +1,9 @@
+.adoption__section {
+	max-width: 400px;
+	margin: auto;
+	min-height: 90vh;
+}
+
+.text-area {
+	resize: none;
+}
