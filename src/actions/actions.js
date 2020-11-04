@@ -1,7 +1,6 @@
 import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 import store from '../stores/principal-store';
-import axios from 'axios';
 
 const clientId = '0wChmPtR7VwHGnCDAQtXeTXKwfVrZ3oTxWANMswDDmSsQj7NGu';
 const clientSecret = 'Z9N1LC0C2b3PEry8VBabaytkr0KSLnkX2L75yAX1';

@@ -39,60 +39,55 @@ function Filters({ type }) {
 		<>
 			<section className="filter-container">
 				<div className="horizontal-container">
-					<div id="filter-age" className="filter">
+					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Age</p>
 						{object.age &&
 							object.age.map((option) => {
 								return (
-									<label>
+									<li className="checkbox-li">
 										<input
 											type="checkbox"
+											id="checkboxOne"
+											className="inputBox"
 											key={option}
 											value={option}
 											onChange={(event) => {
 												updateUrlObject(event, 'age', urlString);
 											}}
-										/>
-										{option}
-									</label>
+										></input>
+										<label for="checkboxOne">{option}</label>
+									</li>
 								);
 							})}
-					</div>
+					</ul>
 
-					<div id="filter-breed" className="filter">
-						{object.breed &&
-							object.breed.map((option) => {
-								return (
-									<label>
-										<input type="checkbox" key={option} value={option} />
-										{option}
-									</label>
-								);
-							})}
-					</div>
-
-					<div id="filter-gender" className="filter">
+					<ul class="ks-cboxtags">
+						<p className="checkbox__text">Gender</p>
 						{object.gender &&
 							object.gender.map((option) => {
 								return (
-									<label>
+									<li className="checkbox-li">
 										<input
 											type="checkbox"
+											id="checkboxOne"
+											className="inputBox"
 											key={option}
 											value={option}
 											onChange={(event) => {
-												updateUrlObject(event, 'gender', urlString);
+												updateUrlObject(event, 'age', urlString);
 											}}
-										/>
-										{option}
-									</label>
+										></input>
+										<label for="checkboxOne">{option}</label>
+									</li>
 								);
 							})}
-					</div>
+					</ul>
 				</div>
 				<button
 					className="button-apply"
 					onClick={() => {
 						applyFilters(urlString, type);
+						console.log(urlString);
 					}}
 				>
 					Apply filters
