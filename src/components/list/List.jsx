@@ -17,7 +17,7 @@ function List({ animals }) {
 								className="animal-card d-flex justify-content-center"
 							>
 								<Card
-									data-testId="card"
+									data-testid="card"
 									as={Link}
 									to={`/details/${animal.id}`}
 									className="m-3 card-pets"

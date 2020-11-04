@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './MainPage.css';
 import Card from 'react-bootstrap/Card';
 import { requestAnimals } from '../../actions/actions';
+import ScrollRandomCats from './ScrollRandomCats';
 
 function MainPage() {
 	return (
@@ -43,6 +44,7 @@ function MainPage() {
 			>
 				Find a pet
 			</Link>
+			<ScrollRandomCats />
 			<div className="volunteers-adoption-cards">
 				<Card className="main-page-cards">
 					<Card.Img
