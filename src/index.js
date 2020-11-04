@@ -10,6 +10,7 @@ import MainDetails from './components/details/MainDetails';
 import MainList from './components/list/MainList';
 import MainPage from './components/main-page/MainPage';
 import Adoption from './components/adoption/Adoption';
+import Contact from './components/contact/Contact';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -20,9 +21,10 @@ ReactDOM.render(
 				<Route path="/details/:animalId" component={MainDetails} />
 				<Route path="/list" component={MainList} />
 				<Route path="/adoption" component={Adoption} />
+				<Route path="/contact" component={Contact} />
 			</Switch>
+			<Footer />
 		</BrowserRouter>
-		<Footer />
 	</React.StrictMode>,
 	document.getElementById('root')
 );
