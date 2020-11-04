@@ -22,13 +22,11 @@ async function requestToken() {
 			payload: data.access_token
 		});
 	} catch (error) {
-		console.log(error);
 		return null;
 	}
 }
 
 async function requestAnimal(animalId) {
-	console.log('Animal fetch');
 	try {
 		const response = await fetch(
 			`https://api.petfinder.com/v2/animals/${animalId}`,
@@ -47,13 +45,11 @@ async function requestAnimal(animalId) {
 			payload: animal.animal
 		});
 	} catch (error) {
-		console.log(error);
 		return null;
 	}
 }
 
 async function requestAnimals(type = '', breed = '', gender = '', age = '') {
-	console.log('Animal List fetch');
 	type = !type ? '' : type;
 	breed = !breed ? '' : breed;
 	gender = !gender ? '' : gender;
@@ -76,9 +72,7 @@ async function requestAnimals(type = '', breed = '', gender = '', age = '') {
 			type: actionTypes.REQUEST_ANIMALS,
 			payload: animals.animals
 		});
-		console.log(animals);
 	} catch (error) {
-		console.log(error);
 		return null;
 	}
 }
