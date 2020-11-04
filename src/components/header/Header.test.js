@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 import * as actions from '../../actions/actions';
 import { unmountComponentAtNode, render } from 'react-dom';

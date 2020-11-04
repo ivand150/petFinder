@@ -16,6 +16,13 @@ function List({ animals }) {
 								key={index}
 								className="animal-card d-flex justify-content-center"
 							>
+								{animal.status === 'adopted' && (
+									<img
+										id="adopted-img"
+										src="https://trello-attachments.s3.amazonaws.com/5fa3145ecc0022209280db6d/500x334/339b9a13b3b2e2d7e9b8927c2c0dcbfc/adopted2.png"
+										alt=""
+									/>
+								)}
 								<Card
 									data-testid="card"
 									as={Link}
