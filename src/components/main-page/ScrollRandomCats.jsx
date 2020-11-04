@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ScrollRandomCats.css';
 import { requestToken, requestAnimals } from '../../actions/actions';
 import store from './../../stores/principal-store';
+import Card from 'react-bootstrap/Card';
 
 function ScrollRandomCats() {
 	const [token, setToken] = useState(store.getToken());
@@ -26,16 +27,20 @@ function ScrollRandomCats() {
 	return (
 		<>
 			<section className="scroll-cats">
-				<span className="scroll-cats__title">Cats</span>
 				<ul className="scrollable">
 					{animals?.map((animal) => {
 						return (
 							<li>
-								<img
-									src={animal.photos[0]?.medium}
-									alt=""
-									className="horisontal-images"
-								/>
+								<Card style={{ width: '100%' }}>
+									<Card.Body>
+										<Card.Img
+											className="horisontal-images"
+											variant="top"
+											src={animal.photos[0]?.medium}
+										/>
+										<Card.Title>{animal.name}</Card.Title>
+									</Card.Body>
+								</Card>
 							</li>
 						);
 					})}
