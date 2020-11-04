@@ -20,7 +20,7 @@ function List({ animals }) {
 									data-testId="card"
 									as={Link}
 									to={`/details/${animal.id}`}
-									className="m-3"
+									className="m-3 card-pets"
 									style={{ width: '100%' }}
 									onClick={() => requestAnimal(animal.id)}
 								>

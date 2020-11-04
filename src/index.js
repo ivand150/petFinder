@@ -9,19 +9,21 @@ import Footer from './components/footer/Footer';
 import MainDetails from './components/details/MainDetails';
 import MainList from './components/list/MainList';
 import MainPage from './components/main-page/MainPage';
+import Adoption from './components/adoption/Adoption';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route path="/" exact component={MainPage} />
-        <Route path="/details/:animalId" component={MainDetails} />
-        <Route path="/list" component={MainList} />
-      </Switch>
-    </BrowserRouter>
-    <Footer />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<BrowserRouter>
+			<Header />
+			<Switch>
+				<Route path="/" exact component={MainPage} />
+				<Route path="/details/:animalId" component={MainDetails} />
+				<Route path="/list" component={MainList} />
+				<Route path="/adoption" component={Adoption} />
+			</Switch>
+		</BrowserRouter>
+		<Footer />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 reportWebVitals();
