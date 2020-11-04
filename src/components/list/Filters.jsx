@@ -90,7 +90,7 @@ function Filters({ type }) {
 						console.log(urlString);
 					}}
 				>
-					Aply filters
+					Apply filters
 				</button>
 			</section>
 		</>
