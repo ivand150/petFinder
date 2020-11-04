@@ -17,6 +17,7 @@ function List({ animals }) {
 								className="animal-card d-flex justify-content-center"
 							>
 								<Card
+									data-testId="card"
 									as={Link}
 									to={`/details/${animal.id}`}
 									className="m-3"
@@ -33,7 +34,7 @@ function List({ animals }) {
 														: animal.photos[0].medium
 												}
 											/>
-											<Card.Title>{animal.name}</Card.Title>
+											<Card.Title data-testid="name">{animal.name}</Card.Title>
 										</div>
 										<div className="d-flex justify-content-around">
 											<div className="d-flex flex-column attributes">
