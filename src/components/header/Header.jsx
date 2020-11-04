@@ -19,7 +19,7 @@ function Header() {
 					alt="logo"
 				/>
 			</Link>
-			<div className="flex-spacer2"></div>
+			<div className="flex-spacer4"></div>
 			<div className="search">
 				<span id="search__icon" className="material-icons">
 					search
@@ -28,75 +28,65 @@ function Header() {
 			</div>
 			<div className="flex-spacer"></div>
 			<DropdownButton id="dropdown-species" title="Select specie">
-				<Dropdown.Item className="species__options">
-					<Link
-						id="dropdown-species__dogs"
-						to={{ pathname: '/list', search: '?type=dog' }}
-						className="menu-button"
-						style={{ textDecoration: 'none' }}
-						onClick={() => {
-							requestAnimals('dog');
-							store.resetFilterOnClick('inputBox');
-						}}
-					>
-						Dogs
-					</Link>
+				<Dropdown.Item
+					as={Link}
+					to={{ pathname: '/list', search: '?type=dog' }}
+					className="species__options"
+					id="dropdown-species__dogs"
+					onClick={() => {
+						requestAnimals('dog');
+						store.resetFilterOnClick('inputBox');
+					}}
+				>
+					Dogs
 				</Dropdown.Item>
-				<Dropdown.Item className="species__options">
-					<Link
-						id="dropdown-species__cats"
-						to={{ pathname: '/list', search: '?type=cat' }}
-						className="menu-button"
-						style={{ textDecoration: 'none' }}
-						onClick={() => {
-							requestAnimals('cat');
-							store.resetFilterOnClick('inputBox');
-						}}
-					>
-						Cats
-					</Link>
+				<Dropdown.Item
+					as={Link}
+					to={{ pathname: '/list', search: '?type=cat' }}
+					id="dropdown-species__cats"
+					className="species__options"
+					onClick={() => {
+						requestAnimals('cat');
+						store.resetFilterOnClick('inputBox');
+					}}
+				>
+					Cats
 				</Dropdown.Item>
-				<Dropdown.Item className="species__options">
-					<Link
-						id="dropdown-species__horses"
-						to={{ pathname: '/list', search: '?type=horse' }}
-						className="menu-button"
-						style={{ textDecoration: 'none' }}
-						onClick={() => {
-							requestAnimals('horse');
-							store.resetFilterOnClick('inputBox');
-						}}
-					>
-						Horses
-					</Link>
+				<Dropdown.Item
+					as={Link}
+					to={{ pathname: '/list', search: '?type=horse' }}
+					id="dropdown-species__horses"
+					className="species__options"
+					onClick={() => {
+						requestAnimals('horse');
+						store.resetFilterOnClick('inputBox');
+					}}
+				>
+					Horses
 				</Dropdown.Item>
-				<Dropdown.Item className="species__options">
-					<Link
-						id="dropdown-species__rabbits"
-						to={{ pathname: '/list', search: '?type=rabbit' }}
-						className="menu-button"
-						style={{ textDecoration: 'none' }}
-						onClick={() => {
-							requestAnimals('rabbit');
-							store.resetFilterOnClick('inputBox');
-						}}
-					>
-						Rabbits
-					</Link>
+				<Dropdown.Item
+					as={Link}
+					to={{ pathname: '/list', search: '?type=rabbit' }}
+					id="dropdown-species__rabbits"
+					className="species__options"
+					onClick={() => {
+						requestAnimals('rabbit');
+						store.resetFilterOnClick('inputBox');
+					}}
+				>
+					Rabbits
 				</Dropdown.Item>
-				<Dropdown.Item className="species__options">
-					<Link
-						id="dropdown-species__small-animals"
-						to={{ pathname: '/list', search: '?type=small-furry' }}
-						className="menu-button"
-						style={{ textDecoration: 'none' }}
-						onClick={() => {
-							requestAnimals('small-furry');
-							store.resetFilterOnClick('inputBox');
-						}}
-					>
-						Small furry animals
-					</Link>
+				<Dropdown.Item
+					as={Link}
+					to={{ pathname: '/list', search: '?type=small-furry' }}
+					id="dropdown-species__small-animals"
+					className="species__options"
+					onClick={() => {
+						requestAnimals('small-furry');
+						store.resetFilterOnClick('inputBox');
+					}}
+				>
+					Small furry animals
 				</Dropdown.Item>
 			</DropdownButton>
 			<div className="flex-spacer"></div>
