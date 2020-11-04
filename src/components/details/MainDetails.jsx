@@ -23,7 +23,6 @@ function MainDetails({ match }) {
 		} else if (!animal) {
 			requestAnimal(animalId);
 		} else if (animal && animals.length < 1) {
-			console.log('request animals scroll');
 			const animalType = animal.type;
 			requestAnimals(animalType);
 		}

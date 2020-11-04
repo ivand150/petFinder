@@ -22,11 +22,6 @@ function Filters({ type }) {
 	}
 
 	function applyFilters(urlObject, type) {
-		console.log(store.getUrlFilter());
-		for (const property in urlObject) {
-			urlObject[property] = store.removeLastComma(urlObject[property]);
-		}
-		console.log('Aply filters clic');
 		requestAnimals(type, urlObject.breed, urlObject.gender, urlObject.age);
 		window.history.replaceState(
 			null,

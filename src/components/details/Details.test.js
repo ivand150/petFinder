@@ -32,7 +32,6 @@ describe.only('details', () => {
 				container
 			);
 		});
-		console.log(container.textContent);
 		expect(container.querySelector('#donating').textContent).toBe('Donate!');
 		expect(container.querySelector('#animal__name').textContent).toBe('ozzy');
 	});
