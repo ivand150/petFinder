@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';

@@ -97,6 +97,57 @@ describe('Store functions', () => {
 			});
 		});
 
+		describe('getUrlFilter', () => {
+			test('should return _urlFilter', () => {
+				//arrange
+				store.setUrlFilter({});
+				//act
+				const response = store.getUrlFilter();
+				//assert
+				expect(response).toEqual({});
+			});
+		});
+
+		describe('resetFilters', () => {
+			test('should reset every property of _urlFilter to an empty array', () => {
+				//arrange
+				store.setUrlFilter({ gender: ['1', '2'], age: ['3', '4'] });
+				//act
+				store.resetFilters();
+				//assert
+				expect(store.getUrlFilter()).toEqual({ gender: [], age: [] });
+			});
+		});
+
+		describe('resetFilterOnClick', () => {
+			let inputList;
+			beforeEach(() => {
+				for (let index = 0; index < 2; index++) {
+					let inputElement = document.createElement('input');
+					inputElement.setAttribute('class', 'inputBox');
+					inputElement.setAttribute('checked', 'true');
+					document.body.appendChild(inputElement);
+				}
+				inputList = document.getElementsByClassName('inputBox');
+			});
+
+			test('to the first input element with class inputBox should put the property checked to false', () => {
+				//arrange
+				//act
+				store.resetFilterOnClick('inputBox');
+				//assert
+				expect(inputList[0].checked).toBe(false);
+			});
+
+			test('to the second input element with class inputBox should put the property checked to false', () => {
+				//arrange
+				//act
+				store.resetFilterOnClick('inputBox');
+				//assert
+				expect(inputList[1].checked).toBe(false);
+			});
+		});
+
 		describe('dispatcher.register: REQUEST_TOKEN', () => {
 			test('should change _token from store and put it in testToken', () => {
 				//arrange
@@ -149,23 +200,6 @@ describe('Store functions', () => {
 					});
 					//assert
 					expect(testAnimals).toEqual([{ name: 'cat' }]);
-				});
-			});
-
-			describe('dispatcher.register: default', () => {
-				test('should change _animals from store and put it in testAnimals', () => {
-					//arrange
-					let testVar = '';
-					function callback() {
-						testVar = store.getTestVar();
-					}
-					//act
-					store.addEventListener(callback);
-					dispatcher.dispatch({
-						type: 'default option'
-					});
-					//assert
-					expect(testVar).toBe('break');
 				});
 			});
 		});

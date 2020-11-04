@@ -87,7 +87,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('dog');
 							hideBurgerMenu();
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Dogs
@@ -101,7 +101,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('cat');
 							hideBurgerMenu();
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Cats
@@ -115,7 +115,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('horse');
 							hideBurgerMenu();
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Horses
@@ -129,7 +129,7 @@ function BurgerButton() {
 						onClick={() => {
 							requestAnimals('rabbit');
 							hideBurgerMenu();
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Rabbits
@@ -142,7 +142,7 @@ function BurgerButton() {
 						className="menu-button"
 						onClick={() => {
 							requestAnimals('small-furry');
-							store.resetFilterOnClick();
+							store.resetFilterOnClick('inputBox');
 						}}
 					>
 						Small furry animals
