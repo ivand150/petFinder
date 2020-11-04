@@ -2,10 +2,11 @@ import React from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
+import Button from 'react-bootstrap/Button';
 
 function Filters({ type }) {
 	const object = {
-		age: ['baby', 'young', 'adult', 'senior'],
+		age: ['adult', 'young', 'baby', 'senior'],
 		gender: ['female', 'male', 'unknown']
 	};
 
@@ -14,6 +15,25 @@ function Filters({ type }) {
 		breed: '',
 		gender: ''
 	};
+
+	function updateUrlObject(event, animalProperty, urlObject) {
+		urlObject[animalProperty] = event.target.checked
+			? urlObject[animalProperty] + `${event.target.value},`
+			: urlObject[animalProperty].replace(`${event.target.value},`, '');
+	}
+
+	function applyFilters(urlObject, type) {
+		for (const property in urlObject) {
+			urlObject[property] = store.removeLastComma(urlObject[property]);
+		}
+		console.log('Aply filters clic');
+		requestAnimals(type, urlObject.breed, urlObject.gender, urlObject.age);
+		window.history.replaceState(
+			null,
+			'',
+			`/list?type=${type}&breed=${urlObject.breed}&age=${urlObject.age}&gender=${urlObject.gender}`
+		);
+	}
 
 	return (
 		<>
@@ -32,9 +52,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.age = event.target.checked
-													? urlString.age + `${event.target.value},`
-													: urlString.age.replace(`${event.target.value},`, '');
+												updateUrlObject(event, 'age', urlString);
 											}}
 										></input>
 										<label for="checkboxOne">{option}</label>
@@ -56,12 +74,7 @@ function Filters({ type }) {
 											key={option}
 											value={option}
 											onChange={(event) => {
-												urlString.gender = event.target.checked
-													? urlString.gender + `${event.target.value},`
-													: urlString.gender.replace(
-															`${event.target.value},`,
-															''
-													  );
+												updateUrlObject(event, 'age', urlString);
 											}}
 										></input>
 										<label for="checkboxOne">{option}</label>
@@ -70,25 +83,11 @@ function Filters({ type }) {
 							})}
 					</ul>
 				</div>
-
 				<button
 					className="button-apply"
 					onClick={() => {
-						for (const property in urlString) {
-							urlString[property] = store.removeLastComma(urlString[property]);
-						}
-						console.log('Aply filters clic');
-						requestAnimals(
-							type,
-							urlString.breed,
-							urlString.gender,
-							urlString.age
-						);
-						window.history.replaceState(
-							null,
-							'',
-							`/list?type=${type}&breed=${urlString.breed}&age=${urlString.age}&gender=${urlString.gender}`
-						);
+						applyFilters(urlString, type);
+						console.log(urlString);
 					}}
 				>
 					Aply filters

@@ -80,3 +80,4 @@ dispatcher.register((action) => {
 });
 
 export default store;
+export { Store };
