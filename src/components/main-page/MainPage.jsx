@@ -16,6 +16,7 @@ function MainPage() {
 			<h1 className="main-page-title">PetFinder</h1>
 			<div className="find-dog-cat-buttons">
 				<Link
+					id="dog-animals-btn"
 					to={{ pathname: '/list', search: '?type=dog' }}
 					className="principal-button"
 					onClick={() => {
@@ -25,6 +26,7 @@ function MainPage() {
 					Find a Dog
 				</Link>
 				<Link
+					id="cat-animals-btn"
 					to={{ pathname: '/list', search: '?type=cat' }}
 					className="principal-button"
 					onClick={() => {

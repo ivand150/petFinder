@@ -37,6 +37,7 @@ function ScrollRandomCats() {
 						return (
 							<li className="cat-card d-flex justify-content-center">
 								<Card
+									id="cat-card-btn"
 									style={{ width: '100vw' }}
 									as={Link}
 									to={`/details/${animal.id}`}
