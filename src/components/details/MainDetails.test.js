@@ -1,30 +1,51 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react'
 import MainDetails from './MainDetails';
 import store from '../../stores/principal-store';
-import { requestToken } from '../../actions/actions';
-import * as actions from '../../actions/actions';
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils'
+import { BrowserRouter } from 'react-router-dom';
+import * as action from '../../actions/actions';
 
 describe('main details', () => {
+  let container;
+
   beforeEach(() => {
-    render(<MainDetails match={{ params: { animalId: '15' } }} />);
+    container = document.createElement('div');
+    document.body.appendChild(container)
+    const match = { params: { animaldId: 15 } }
+    act(() => {
+      render(<BrowserRouter><MainDetails match={match} /></BrowserRouter>, container);
+    })
+
   });
-  test('should render', () => {
-    const linkElement = screen.getByText(/Specie/i);
-    expect(linkElement).toBeInTheDocument();
-  });
-  test('should test handlechanger', () => {
-    store.setAnimal({
-      description: 'test',
-      breeds: { primary: '' },
-      tags: ['1', '2'],
-      photos: ['1', '2'],
-    });
-    store.emitChange();
-  });
+
+  afterEach(() => {
+    unmountComponentAtNode(container)
+    container.remove()
+    container = null;
+  })
+
   test('should request token', () => {
-    actions.requestToken = jest.fn();
+    action.requestToken = jest.fn();
     store.setToken();
     store.emitChange();
-    expect(requestToken).toHaveBeenCalled();
-  });
+    expect(action.requestToken).toHaveBeenCalled();
+  })
+
+  test('should request animal', () => {
+    action.requestAnimal = jest.fn();
+    store.setToken('hola');
+    store.emitChange();
+    expect(action.requestAnimal).toHaveBeenCalled();
+  })
+
+  test('should request animals', () => {
+    const animal = { type: 'cat', breeds: { primary: 'dog' }, tags: [] };
+    action.requestAnimals = jest.fn();
+    store.setToken('hola');
+    store.setAnimal(animal);
+    store.setAnimals([]);
+    store.emitChange();
+    expect(action.requestAnimals).toHaveBeenCalled();
+  })
 });

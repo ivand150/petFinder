@@ -14,7 +14,7 @@ function Details({ animal }) {
 							<Card.Title className="card-details-title" id="animal__name">
 								{animal?.name}
 							</Card.Title>
-							<Card.Subtitle className="mb-2 text-muted">
+							<Card.Subtitle id="description" className="mb-2 text-muted">
 								Description:
 							</Card.Subtitle>
 							<Card.Text>{animal?.description}</Card.Text>
