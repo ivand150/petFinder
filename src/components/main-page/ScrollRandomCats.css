@@ -22,9 +22,11 @@
 
 .card-cat-tittle {
     color: #006ed9;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     border-bottom: 2px solid rgb(213, 213, 213);
+    overflow: hidden;
+    height: 38px;
 }
 
 .cats-tittle {
