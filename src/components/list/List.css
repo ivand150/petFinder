@@ -67,7 +67,7 @@ ul {
 	border-bottom: 2px solid rgb(213, 213, 213);
 }
 
-.card-img-top {
+.card-img-top__list {
 	border-radius: 5px;
 	height: 340px;
 	object-fit: cover;
