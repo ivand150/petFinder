@@ -65,7 +65,7 @@ ul.ks-cboxtags li label {
 ul.ks-cboxtags li label {
 	padding: 8px 12px;
 	cursor: pointer;
-	width: 120px;
+	width: 130px;
 }
 
 ul.ks-cboxtags li label::before {
@@ -131,7 +131,8 @@ ul.ks-cboxtags li input[type='radio']:focus + label {
 	flex-direction: row;
 }
 
-.inputBox {
+.inputBox,
+.inputRadio {
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -144,6 +145,14 @@ ul.ks-cboxtags li input[type='radio']:focus + label {
 
 .checkbox__text {
 	color: white;
+}
+
+@media screen and (min-width: 600px) {
+	.horizontal-container-desktop {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+	}
 }
 
 @media screen and (min-width: 900px) {

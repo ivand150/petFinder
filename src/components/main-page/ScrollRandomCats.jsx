@@ -3,6 +3,8 @@ import './ScrollRandomCats.css';
 import { requestToken, requestAnimals } from '../../actions/actions';
 import store from './../../stores/principal-store';
 import Card from 'react-bootstrap/Card';
+import { requestAnimal } from './../../actions/actions';
+import { Link } from 'react-router-dom';
 
 function ScrollRandomCats() {
 	const [token, setToken] = useState(store.getToken());
@@ -26,19 +28,29 @@ function ScrollRandomCats() {
 
 	return (
 		<>
+			<div className="cats-tittle">
+				<p className="cats-tittle__text">Cats available for adoption</p>
+			</div>
 			<section className="scroll-cats">
 				<ul className="scrollable">
 					{animals?.map((animal) => {
 						return (
-							<li>
-								<Card style={{ width: '100%' }}>
+							<li className="cat-card d-flex justify-content-center">
+								<Card
+									style={{ width: '100vw' }}
+									as={Link}
+									to={`/details/${animal.id}`}
+									onClick={() => requestAnimal(animal.id)}
+								>
 									<Card.Body>
 										<Card.Img
 											className="horisontal-images"
 											variant="top"
 											src={animal.photos[0]?.medium}
 										/>
-										<Card.Title>{animal.name}</Card.Title>
+										<Card.Title className="card-cat-tittle">
+											{animal.name}
+										</Card.Title>
 									</Card.Body>
 								</Card>
 							</li>

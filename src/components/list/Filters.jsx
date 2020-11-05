@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Filters.css';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
@@ -11,7 +11,22 @@ function Filters({ type }) {
 		gender: ['female', 'male']
 	};
 
-	function updateUrlObject(event, animalProperty, urlObject) {
+	useEffect(() => {
+		setInitialCheckToSpeciesList(store.getUrlFilter());
+	});
+
+	function setInitialCheckToSpeciesList(urlObject) {
+		urlObject.type = [type];
+		const radioButtons = document.getElementsByClassName('inputRadio');
+		const buttonType = Array.prototype.find.call(radioButtons, (element) => {
+			return element.value === type;
+		});
+		if (buttonType) {
+			buttonType.checked = true;
+		}
+	}
+
+	function updateUrlObject(event, animalProperty, urlObject, index) {
 		if (event.target.type === 'radio') {
 			urlObject[animalProperty] = [event.target.value];
 		} else {
@@ -25,8 +40,6 @@ function Filters({ type }) {
 				);
 			}
 		}
-
-		console.log(store.getUrlFilter());
 	}
 
 	function applyFilters(urlObject) {
@@ -39,7 +52,7 @@ function Filters({ type }) {
 		window.history.replaceState(
 			null,
 			'',
-			`/list?type=${urlObject.type.join(',')}&age=${urlObject.age.join(
+			`/list?type=${urlObject.type}&age=${urlObject.age.join(
 				','
 			)}&gender=${urlObject.gender.join(',')}`
 		);
@@ -48,51 +61,59 @@ function Filters({ type }) {
 	return (
 		<>
 			<section className="filter-container">
-				<div className="horizontal-container">
-					<ul className="ks-cboxtags">
-						<p className="checkbox__text">Specie</p>
-						{object.type &&
-							object.type.map((option, index) => {
-								return (
-									<li className="checkbox-li" key={index}>
-										<input
-											type="radio"
-											id={`radio${index}`}
-											className="inputBox"
-											name="type"
-											key={option}
-											value={option}
-											onChange={(event) => {
-												console.log(event);
-												updateUrlObject(event, 'type', store.getUrlFilter());
-											}}
-										></input>
-										<label htmlFor="checkboxOne">{option}</label>
-									</li>
-								);
-							})}
-					</ul>
-					<ul className="ks-cboxtags">
-						<p className="checkbox__text">Age</p>
-						{object.age &&
-							object.age.map((option, index) => {
-								return (
-									<li className="checkbox-li" key={index}>
-										<input
-											type="checkbox"
-											id={`checkboxAge${index}`}
-											className="inputBox"
-											key={option}
-											value={option}
-											onChange={(event) => {
-												updateUrlObject(event, 'age', store.getUrlFilter());
-											}}
-										></input>
-										<label htmlFor="checkboxOne">{option}</label>
-									</li>
-								);
-							})}
-					</ul>
+				<div className="horizontal-container-desktop">
+					<div className="horizontal-container">
+						<ul className="ks-cboxtags">
+							<p className="checkbox__text">Specie</p>
+							{object.type &&
+								object.type.map((option, index) => {
+									return (
+										<li className="checkbox-li" key={index}>
+											<input
+												type="radio"
+												id={`radio-${option}`}
+												className="inputRadio"
+												name="type"
+												key={option}
+												value={option}
+												onChange={(event) => {
+													updateUrlObject(
+														event,
+														'type',
+														store.getUrlFilter(),
+														index
+													);
+												}}
+											></input>
+											<label htmlFor="checkboxOne">
+												{option.replace('-', ' ')}
+											</label>
+										</li>
+									);
+								})}
+						</ul>
+						<ul className="ks-cboxtags">
+							<p className="checkbox__text">Age</p>
+							{object.age &&
+								object.age.map((option, index) => {
+									return (
+										<li className="checkbox-li" key={index}>
+											<input
+												type="checkbox"
+												id={`checkboxAge-${option}`}
+												className="inputBox"
+												key={option}
+												value={option}
+												onChange={(event) => {
+													updateUrlObject(event, 'age', store.getUrlFilter());
+												}}
+											></input>
+											<label htmlFor="checkboxOne">{option}</label>
+										</li>
+									);
+								})}
+						</ul>
+					</div>
 
 					<ul className="ks-cboxtags">
 						<p className="checkbox__text">Gender</p>
@@ -102,7 +123,7 @@ function Filters({ type }) {
 									<li className="checkbox-li" key={index}>
 										<input
 											type="checkbox"
-											id={`checkboxGender${index}`}
+											id={`checkboxGender-${option}`}
 											className="inputBox"
 											key={option}
 											value={option}
