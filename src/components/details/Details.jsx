@@ -2,53 +2,85 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import './Details.css';
 
 function Details({ animal }) {
 	return (
 		<>
-			<section className="tags">
-				{animal?.tags.length > 0 && (
-					<>
-						<span>Tags:</span>
-						<div className="tag__names">
-							{animal?.tags.map((tag) => {
-								return <span className="tag__name">{tag}</span>;
-							})}
-						</div>
-					</>
-				)}
-			</section>
 			<div className="details-donating">
-				<section id="details">
+				<section id="details" className="animal__section">
 					<Card className="mb-4" style={{ width: '95vw' }}>
 						<Card.Body>
 							<Card.Title className="card-details-title" id="animal__name">
 								{animal?.name}
 							</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">
-								Description
+								Description:
 							</Card.Subtitle>
 							<Card.Text>{animal?.description}</Card.Text>
-							<Card.Subtitle className="mb-2 text-muted">Specie</Card.Subtitle>
-							<Card.Text>{animal?.species}</Card.Text>
-							<Card.Subtitle className="mb-2 text-muted">Age</Card.Subtitle>
-							<Card.Text>{animal?.age}</Card.Text>
-							<Card.Subtitle className="mb-2 text-muted">Breed</Card.Subtitle>
-							<Card.Text>{animal?.breeds.primary}</Card.Text>
-							<Card.Subtitle className="mb-2 text-muted">Size</Card.Subtitle>
-							<Card.Text>{animal?.size}</Card.Text>
-							<Card.Subtitle className="mb-2 text-muted">Status</Card.Subtitle>
-							<Card.Text className="text-capitalize">
-								{animal?.status}
-							</Card.Text>
+							<section className="description__section">
+								<div className="card__flex">
+									<Card.Subtitle className="mb-2 text-muted">
+										Specie:
+									</Card.Subtitle>
+									<Card.Text className="card__text">
+										{animal?.species}
+									</Card.Text>
+								</div>
+								<div className="card__flex">
+									<Card.Subtitle className="mb-2 text-muted">
+										Age:
+									</Card.Subtitle>
+									<Card.Text className="card__text">{animal?.age}</Card.Text>
+								</div>
+								<div className="card__flex">
+									<Card.Subtitle className="mb-2 text-muted">
+										Breed:
+									</Card.Subtitle>
+									<Card.Text className="card__text">
+										{animal?.breeds.primary}
+									</Card.Text>
+								</div>
+								<div className="card__flex">
+									<Card.Subtitle className="mb-2 text-muted">
+										Size:{' '}
+									</Card.Subtitle>
+									<Card.Text className="card__text">{animal?.size}</Card.Text>
+								</div>
+								<div className="card__flex">
+									<Card.Subtitle className="mb-2 text-muted">
+										Status:
+									</Card.Subtitle>
+									<Card.Text className="text-capitalize card__text">
+										{animal?.status}
+									</Card.Text>
+								</div>
+							</section>
+							<section className="tags">
+								{animal?.tags.length > 0 && (
+									<>
+										<span>Tags:</span>
+										<div className="tag__names">
+											{animal?.tags.map((tag) => {
+												return <span className="tag__name">{tag}</span>;
+											})}
+										</div>
+									</>
+								)}
+							</section>
 							<Link to="/adoption">
 								<Button variant="primary">Adopt me!</Button>
 							</Link>
+							<img
+								className="logo__detail"
+								src="https://trello-attachments.s3.amazonaws.com/5f9d3d8395a20040a815a80a/768x727/6b9e6b190008963e1377a82e5497b4c1/dogcat2.png"
+								alt=""
+							/>
 						</Card.Body>
 					</Card>
 				</section>
 				<section id="donating">
-					<Card id="donating__card" className="mb-4 p-4">
+					<Card id="donating__card" className="mb-4 p-4  donate__image">
 						<Card.Body>
 							<Button
 								id="donate-button"
@@ -60,6 +92,7 @@ function Details({ animal }) {
 								Donate!
 							</Button>
 							<Card.Img
+								className="donate__inside-img"
 								variant="top"
 								src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5f9bfce5c6ad214b224696c9/d1990c6a6508004187186855e9395ddf/IMG_7381.jpg"
 							/>

@@ -20,19 +20,27 @@ function SliderDetail({ animal }) {
 	} else {
 		return (
 			<>
-				<Carousel>
-					{animal?.photos.map((photo) => {
-						return (
-							<Carousel.Item>
-								<img
-									className="d-block w-100 slide__image"
-									src={`${photo.full}`}
-									alt="First slide"
-								/>
-							</Carousel.Item>
-						);
-					})}
-				</Carousel>
+				{animal?.photos.length === 1 ? (
+					<img
+						className="slide__image"
+						alt=""
+						src={`${animal?.photos[0].full}`}
+					></img>
+				) : (
+					<Carousel>
+						{animal?.photos.map((photo) => {
+							return (
+								<Carousel.Item>
+									<img
+										className="d-block w-100 slide__image"
+										src={`${photo.full}`}
+										alt="First slide"
+									/>
+								</Carousel.Item>
+							);
+						})}
+					</Carousel>
+				)}
 			</>
 		);
 	}
