@@ -39,7 +39,7 @@ function MainDetails({ match }) {
 	}
 
 	return (
-		<main>
+		<main className="minvw">
 			<SliderDetail animal={animal} />
 			<Details animal={animal} />
 		</main>

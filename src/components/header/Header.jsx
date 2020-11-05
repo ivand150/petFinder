@@ -21,12 +21,6 @@ function Header() {
 				<p className="logo-name">PetFinder</p>
 			</Link>
 			<div className="flex-spacer2"></div>
-			<div className="search">
-				<span id="search__icon" className="material-icons">
-					search
-				</span>
-				<input id="search__input" type="text" placeholder="Search ..." />
-			</div>
 			<div className="flex-spacer"></div>
 			<DropdownButton id="dropdown-species" title="Select specie">
 				<Dropdown.Item
@@ -91,11 +85,6 @@ function Header() {
 				</Dropdown.Item>
 			</DropdownButton>
 			<div className="flex-spacer"></div>
-			<DropdownButton id="dropdown-countries" title="Select country">
-				<Dropdown.Item className="countries__options">Mexico</Dropdown.Item>
-				<Dropdown.Item className="countries__options">Canada</Dropdown.Item>
-				<Dropdown.Item className="countries__options">USA</Dropdown.Item>
-			</DropdownButton>
 			<Button variant="primary" id="header__login">
 				Login
 			</Button>
