@@ -17,7 +17,6 @@ function MainDetails({ match }) {
 
 	useEffect(() => {
 		store.addEventListener(handleChange);
-
 		if (!token) {
 			requestToken();
 		} else if (!animal) {
