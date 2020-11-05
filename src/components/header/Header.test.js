@@ -3,6 +3,10 @@ import Header from './Header';
 import * as actions from '../../actions/actions';
 import { unmountComponentAtNode, render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
+import * as authActions from '../../actions/auth-actions';
+import authStore from '../../stores/auth-store';
+
+jest.mock('../../actions/auth-actions');
 
 describe('Header', () => {
 	let container;
@@ -98,5 +102,27 @@ describe('Header', () => {
 			);
 		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
+	});
+
+	test('should call singInWithGoogle', () => {
+		const loginButton = document.getElementById('header__login');
+		act(() => {
+			loginButton.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
+		expect(authActions.singInWithGoogle).toHaveBeenCalledTimes(1);
+	});
+
+	test('should call singOut if user', () => {
+		authStore.setUser('user');
+		authStore.emitChange();
+		const logoutButton = document.getElementById('header__logout');
+		act(() => {
+			logoutButton.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
+		expect(authActions.signOut).toHaveBeenCalledTimes(1);
 	});
 });

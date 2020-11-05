@@ -23,7 +23,7 @@ function Header() {
 		return () => {
 			authStore.removeChangeListener(handleChange);
 		};
-	});
+	}, [user]);
 
 	function isSignInVisible() {
 		return user ? (
