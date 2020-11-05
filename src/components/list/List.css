@@ -20,6 +20,16 @@ ul {
 .animal-card {
 	width: 340px;
 	height: 560px;
+	position: relative;
+}
+
+#adopted-img {
+	position: absolute;
+	z-index: 10;
+	width: 300px;
+	transform: rotate(45deg);
+	left: 110px;
+	top: -30px;
 }
 
 .pet-card__name {

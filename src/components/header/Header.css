@@ -17,6 +17,21 @@
 	height: 45px;
 }
 
+.logo-name {
+	color: white;
+	outline: none;
+	margin-left: 8px;
+}
+
+.header-link:hover {
+	text-decoration: none;
+}
+
+.logo-name:hover {
+	text-decoration: none;
+	color: white;
+}
+
 #burger-container {
 	position: relative;
 }

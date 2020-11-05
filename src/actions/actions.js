@@ -49,14 +49,7 @@ async function requestAnimal(animalId) {
 	}
 }
 
-async function requestAnimals(
-	type = '',
-	breed = '',
-	gender = '',
-	age = '',
-	status = 'adoptable'
-) {
-	console.log('Animal List fetch');
+async function requestAnimals(type, breed, gender, age, status) {
 	type = !type ? '' : type;
 	breed = !breed ? '' : breed;
 	gender = !gender ? '' : gender;

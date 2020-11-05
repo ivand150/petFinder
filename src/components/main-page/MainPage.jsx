@@ -62,7 +62,9 @@ function MainPage() {
 						src="https://trello-attachments.s3.amazonaws.com/5fa2bd274867f866085bb1d2/626x417/3d2cb6bd2897c3198997d984ea32d081/volunteer.jpg"
 						alt="volunteers"
 					/>
-					<Card.Title>Volunteers wanted!</Card.Title>
+					<Card.Title className="card-list-title">
+						Volunteers wanted!
+					</Card.Title>
 					<Card.Text className="cards-text">
 						We want to appeal to all those who want to dedicate part of their
 						time to abandoned animals. These animals need volunteerism to be
@@ -75,7 +77,7 @@ function MainPage() {
 						src="https://trello-attachments.s3.amazonaws.com/5f9bf9da4ef72b5e96d70d02/5fa2bd274867f866085bb1d2/42c318067e3316c6a601362bc92fbd7b/adoption.jpeg"
 						alt="adoption"
 					/>
-					<Card.Title>Adoption</Card.Title>
+					<Card.Title className="card-list-title">Adoption</Card.Title>
 					<Card.Text className="cards-text">
 						Adopting is the most beautiful love that we can give to the pets.
 						With this gesture you will receive unconditional love from the
