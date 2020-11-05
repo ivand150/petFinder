@@ -65,12 +65,6 @@ function Header() {
 				<p className="logo-name">PetFinder</p>
 			</Link>
 			<div className="flex-spacer2"></div>
-			<div className="search">
-				<span id="search__icon" className="material-icons">
-					search
-				</span>
-				<input id="search__input" type="text" placeholder="Search ..." />
-			</div>
 			<div className="flex-spacer"></div>
 			<DropdownButton id="dropdown-species" title="Select specie">
 				<Dropdown.Item

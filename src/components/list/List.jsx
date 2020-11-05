@@ -34,6 +34,7 @@ function List({ animals }) {
 									<Card.Body>
 										<div className="d-flex flex-column align-items-center">
 											<Card.Img
+												className="card-img-top__list"
 												variant="top"
 												src={
 													!animal.photos[0]
