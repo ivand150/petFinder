@@ -28,7 +28,7 @@ function List({ animals }) {
 									as={Link}
 									to={`/details/${animal.id}`}
 									className="m-3 card-pets"
-									style={{ width: '100%' }}
+									style={{ width: '100vw' }}
 									onClick={() => requestAnimal(animal.id)}
 								>
 									<Card.Body>
