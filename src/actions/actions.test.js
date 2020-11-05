@@ -76,7 +76,7 @@ describe('actions functions', () => {
 		});
 		test('should call fetch with the url "https://api.petfinder.com/v2/animals/animalId"', () => {
 			expect(fetch.mock.calls[0][0]).toBe(
-				'https://api.petfinder.com/v2/animals?type=cat&breed=shorthair&gender=male&age=young'
+				'https://api.petfinder.com/v2/animals?type=cat&breed=shorthair&gender=male&age=young&limit=100&status=adoptable'
 			);
 		});
 

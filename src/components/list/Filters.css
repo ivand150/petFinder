@@ -65,7 +65,7 @@ ul.ks-cboxtags li label {
 ul.ks-cboxtags li label {
 	padding: 8px 12px;
 	cursor: pointer;
-	width: 120px;
+	width: 130px;
 }
 
 ul.ks-cboxtags li label::before {
@@ -82,13 +82,13 @@ ul.ks-cboxtags li label::before {
 	transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:checked+label::before {
+ul.ks-cboxtags li input[type='checkbox']:checked + label::before {
 	content: '\f00c';
 	transform: rotate(-360deg);
 	transition: transform 0.3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:checked+label {
+ul.ks-cboxtags li input[type='checkbox']:checked + label {
 	border: 2px solid #1bdbf8;
 	background-color: #12bbd4;
 	color: #fff;
@@ -100,7 +100,29 @@ ul.ks-cboxtags li input[type='checkbox'] {
 	opacity: 0;
 }
 
-ul.ks-cboxtags li input[type='checkbox']:focus+label {
+ul.ks-cboxtags li input[type='checkbox']:focus + label {
+	border: 2px solid #e9a1ff;
+}
+
+ul.ks-cboxtags li input[type='radio']:checked + label::before {
+	content: '\f00c';
+	transform: rotate(-360deg);
+	transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type='radio']:checked + label {
+	border: 2px solid #1bdbf8;
+	background-color: #12bbd4;
+	color: #fff;
+	transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type='radio'] {
+	position: absolute;
+	opacity: 0;
+}
+
+ul.ks-cboxtags li input[type='radio']:focus + label {
 	border: 2px solid #e9a1ff;
 }
 
@@ -109,7 +131,8 @@ ul.ks-cboxtags li input[type='checkbox']:focus+label {
 	flex-direction: row;
 }
 
-.inputBox {
+.inputBox,
+.inputRadio {
 	width: 100%;
 	height: 100%;
 	display: block;
@@ -122,6 +145,14 @@ ul.ks-cboxtags li input[type='checkbox']:focus+label {
 
 .checkbox__text {
 	color: white;
+}
+
+@media screen and (min-width: 600px) {
+	.horizontal-container-desktop {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+	}
 }
 
 @media screen and (min-width: 900px) {

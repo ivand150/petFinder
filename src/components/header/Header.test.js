@@ -1,4 +1,3 @@
-import { screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 import * as actions from '../../actions/actions';
@@ -14,7 +13,6 @@ describe('Header', () => {
 		act(() => {
 			render(
 				<BrowserRouter>
-					{' '}
 					<Header />
 				</BrowserRouter>,
 				container
@@ -28,14 +26,11 @@ describe('Header', () => {
 		container = null;
 	});
 
-	test('renders learn react link', () => {
-		const linkElement = screen.getByText(/Select country/i);
-		expect(linkElement).toBeInTheDocument();
-	});
-
 	test('should search text', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		expect(document.getElementById('dropdown-species__dogs').textContent).toBe(
 			'Dogs'
 		);
@@ -43,41 +38,65 @@ describe('Header', () => {
 
 	test('should call request animals function on dog selection', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		let button = document.getElementById('dropdown-species__dogs');
-		button.click();
+		act(() => {
+			button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 
 	test('should call request animals function on cat selection', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		let button = document.getElementById('dropdown-species__cats');
-		button.click();
+		act(() => {
+			button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 
 	test('should call request animals function on horses selection', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		let button = document.getElementById('dropdown-species__horses');
-		button.click();
+		act(() => {
+			button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 
 	test('should call request animals function on rabbits selection', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		let button = document.getElementById('dropdown-species__rabbits');
-		button.click();
+		act(() => {
+			button.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 
 	test('should call request animals function on small furries selection', () => {
 		let dropdown = document.getElementById('dropdown-species');
-		dropdown.click();
+		act(() => {
+			dropdown.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
 		let button = document.getElementById('dropdown-species__small-animals');
-		button.click();
+		act(() => {
+			button.dispatchEvent(
+				new MouseEvent('click', { bubbles: true, cancelable: true })
+			);
+		});
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 });

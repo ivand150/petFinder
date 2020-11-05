@@ -4,6 +4,7 @@ import actionTypes from '../actions/action-types';
 
 const CHANGE = 'CHANGE';
 let _urlFilter = {
+	type: [],
 	age: [],
 	gender: []
 };
