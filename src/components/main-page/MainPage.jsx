@@ -54,7 +54,7 @@ function MainPage() {
 			>
 				Animals already adopted!
 			</Link>
-			<ScrollRandomCats />
+			{/* <ScrollRandomCats /> */}
 			<div className="volunteers-adoption-cards">
 				<Card className="main-page-cards">
 					<Card.Img
