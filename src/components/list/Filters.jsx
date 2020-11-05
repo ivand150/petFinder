@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 function Filters({ type }) {
 	const object = {
 		age: ['baby', 'young', 'adult', 'senior'],
-		gender: ['female', 'male', 'unknown']
+		gender: ['female', 'male']
 	};
 
 	function updateUrlObject(event, animalProperty, urlObject) {
