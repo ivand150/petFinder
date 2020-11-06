@@ -1,15 +1,13 @@
-import { Store } from './principal-store';
+import store from './principal-store';
 import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from '../actions/action-types';
 
-jest.mock('../dispatcher/dispatcher');
-
 describe('Store functions', () => {
-	let store;
 	beforeEach(() => {
-		store = new Store();
+		store.setToken(null);
+		store.setAnimal(null);
+		store.setAnimals([]);
 	});
-
 	test('should be defined', () => {
 		expect(store).toBeDefined();
 	});
@@ -134,7 +132,7 @@ describe('Store functions', () => {
 			});
 		});
 
-		describe.skip('dispatcher.register: REQUEST_TOKEN', () => {
+		describe('dispatcher.register: REQUEST_TOKEN', () => {
 			test('should change _token from store and put it in testToken', () => {
 				//arrange
 				let testToken = '';
@@ -143,18 +141,17 @@ describe('Store functions', () => {
 				}
 				//act
 				store.addEventListener(callback);
-				dispatcher.dispatch.mockImplementationOnce(() => {
-					return {
-						type: actionTypes.REQUEST_TOKEN,
-						payload: '123456'
-					};
+				debugger;
+				dispatcher.dispatch({
+					type: actionTypes.REQUEST_TOKEN,
+					payload: '123456'
 				});
 				//assert
 				expect(testToken).toBe('123456');
 			});
 		});
 
-		describe.skip('dispatcher.register: REQUEST_ANIMAL', () => {
+		describe('dispatcher.register: REQUEST_ANIMAL', () => {
 			test('should change _animal from store and put it in testAnimal', () => {
 				//arrange
 				let testAnimal = {};
@@ -171,7 +168,7 @@ describe('Store functions', () => {
 				expect(testAnimal).toEqual({ name: 'cat' });
 			});
 
-			describe.skip('dispatcher.register: REQUEST_ANIMALS', () => {
+			describe('dispatcher.register: REQUEST_ANIMALS', () => {
 				test('should change _animals from store and put it in testAnimals', () => {
 					//arrange
 					let testAnimals = [];
@@ -182,10 +179,10 @@ describe('Store functions', () => {
 					store.addEventListener(callback);
 					dispatcher.dispatch({
 						type: actionTypes.REQUEST_ANIMALS,
-						payload: [{ name: 'cat' }]
+						payload: [{ name: 'cat', photos: ['1'] }]
 					});
 					//assert
-					expect(testAnimals).toEqual([{ name: 'cat' }]);
+					expect(testAnimals).toEqual([{ name: 'cat', photos: ['1'] }]);
 				});
 			});
 		});
