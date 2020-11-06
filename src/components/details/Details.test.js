@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
 import Details from './Details';
 import authStore from '../../stores/auth-store';
-import { waitFor } from '@testing-library/react';
 
 describe('details', () => {
 	let container;
