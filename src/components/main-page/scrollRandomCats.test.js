@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import ScrollRandomCats from './ScrollRandomCats';
 import * as action from './../../actions/actions';
 import store from './../../stores/principal-store';
+import { waitFor } from '@testing-library/react';
+
+jest.mock('./../../actions/actions');
 
 describe('ScrollRandomCats', () => {
 	let container;
@@ -17,11 +20,14 @@ describe('ScrollRandomCats', () => {
 		}
 	];
 
+	const fakeToken = '1234';
+
 	beforeEach(() => {
 		container = document.createElement('div');
 		document.body.appendChild(container);
 		act(() => {
-			store.setAnimals(animalsMock);
+			store.setToken();
+			store.setAnimals([]);
 			render(
 				<BrowserRouter>
 					<ScrollRandomCats />
@@ -43,18 +49,29 @@ describe('ScrollRandomCats', () => {
 		);
 	});
 
-	test('should call requestAnimal when click', () => {
-		let button = document.getElementById('cat-card-btn');
-		action.requestAnimal = jest.fn();
-		store.emitChange();
-		button.click();
-		expect(action.requestAnimal).toHaveBeenCalledTimes(1);
+	test('should request token', () => {
+		expect(action.requestToken).toHaveBeenCalled();
 	});
 
-	test('should request token', () => {
-		action.requestToken = jest.fn();
-		store.setToken();
-		store.emitChange();
-		expect(action.requestToken).toHaveBeenCalled();
+	test('should requestAnimals if token but not animals', async () => {
+		act(() => {
+			store.setToken(fakeToken);
+			store.emitChange();
+		});
+
+		expect(action.requestAnimals).toHaveBeenCalled();
+	});
+
+	test('should call requestAnimal when click', () => {
+		act(() => {
+			store.setToken(fakeToken);
+			store.setAnimals(animalsMock);
+			store.emitChange();
+		});
+		let button = document.getElementById('cat-card-btn');
+		button.dispatchEvent(
+			new MouseEvent('click', { bubbles: true, cancelable: true })
+		);
+		expect(action.requestAnimal).toHaveBeenCalledTimes(1);
 	});
 });

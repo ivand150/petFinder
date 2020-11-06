@@ -33,9 +33,12 @@ function ScrollRandomCats() {
 			</div>
 			<section className="scroll-cats">
 				<ul className="scrollable">
-					{animals?.map((animal) => {
+					{animals?.map((animal, index) => {
 						return (
-							<li className="cat-card d-flex justify-content-center">
+							<li
+								className="cat-card d-flex justify-content-center"
+								key={index}
+							>
 								<Card
 									id="cat-card-btn"
 									style={{ width: '100vw' }}

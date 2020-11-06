@@ -10,7 +10,6 @@ export function handleSignIn(user) {
 		phoneNumber: user.phoneNumber,
 		photoURL: user.photoURL
 	};
-
 	dispatcher.dispatch({
 		type: actionTypes.AUTH_LOGIN,
 		payload: customUserData
@@ -42,9 +41,7 @@ export async function signInWithEmail(email, password) {
 			.signInWithEmailAndPassword(email, password);
 		handleSignIn(user);
 	} catch (error) {
-		dispatcher.dispatch({
-			type: actionTypes.AUTH_LOGIN_ERROR
-		});
+		handleError(actionTypes.AUTH_LOGIN_ERROR);
 	}
 }
 
@@ -55,8 +52,6 @@ export async function signOut() {
 			type: actionTypes.AUTH_SIGNOUT
 		});
 	} catch (error) {
-		dispatcher.dispatch({
-			type: actionTypes.AUTH_SIGNOUT_ERROR
-		});
+		handleError(actionTypes.AUTH_SIGNOUT_ERROR);
 	}
 }
