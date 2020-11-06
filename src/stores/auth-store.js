@@ -10,6 +10,10 @@ class AuthStore extends EventEmitter {
 		return _user;
 	}
 
+	setUser(user) {
+		_user = user;
+	}
+
 	addChangeListener(callback) {
 		this.on(CHANGE, callback);
 	}

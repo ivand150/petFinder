@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import dispatcher from '../dispatcher/dispatcher';
 import actionTypes from './action-types';
 
-function handleSingIn(user) {
+export function handleSignIn(user) {
 	const customUserData = {
 		displayName: user.displayName,
 		email: user.email,
@@ -17,19 +17,19 @@ function handleSingIn(user) {
 	});
 }
 
-function handleError(type) {
+export function handleError(type) {
 	dispatcher.dispatch({
 		type
 	});
 }
 
-export async function singInWithGoogle() {
+export async function signInWithGoogle() {
 	const provider = new firebase.auth.GoogleAuthProvider();
 	provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 
 	try {
 		const { user } = await firebase.auth().signInWithPopup(provider);
-		handleSingIn(user);
+		handleSignIn(user);
 	} catch (error) {
 		handleError(actionTypes.AUTH_LOGIN_ERROR);
 	}
@@ -40,7 +40,7 @@ export async function signInWithEmail(email, password) {
 		const { user } = await firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password);
-		handleSingIn(user);
+		handleSignIn(user);
 	} catch (error) {
 		dispatcher.dispatch({
 			type: actionTypes.AUTH_LOGIN_ERROR
