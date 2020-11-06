@@ -6,7 +6,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { requestAnimals } from '../../actions/actions';
 import store from '../../stores/principal-store';
-import { signOut, singInWithGoogle } from '../../actions/auth-actions';
+import { signOut, signInWithGoogle } from '../../actions/auth-actions';
 import authStore from '../../stores/auth-store';
 import './Header.css';
 
@@ -45,7 +45,7 @@ function Header() {
 				id="header__login"
 				onClick={(event) => {
 					event.preventDefault();
-					singInWithGoogle();
+					signInWithGoogle();
 				}}
 			>
 				Login

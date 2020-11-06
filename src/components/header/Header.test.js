@@ -5,6 +5,7 @@ import { unmountComponentAtNode, render } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import * as authActions from '../../actions/auth-actions';
 import authStore from '../../stores/auth-store';
+import { waitFor } from '@testing-library/react';
 
 jest.mock('../../actions/auth-actions');
 
@@ -104,25 +105,28 @@ describe('Header', () => {
 		expect(actions.requestAnimals).toHaveBeenCalled();
 	});
 
-	test('should call singInWithGoogle', () => {
+	test('should call signInWithGoogle', () => {
 		const loginButton = document.getElementById('header__login');
 		act(() => {
 			loginButton.dispatchEvent(
 				new MouseEvent('click', { bubbles: true, cancelable: true })
 			);
 		});
-		expect(authActions.singInWithGoogle).toHaveBeenCalledTimes(1);
+		expect(authActions.signInWithGoogle).toHaveBeenCalledTimes(1);
 	});
 
-	test('should call singOut if user', () => {
+	test('should call signOut if user', async () => {
 		authStore.setUser('user');
-		authStore.emitChange();
-		const logoutButton = document.getElementById('header__logout');
-		act(() => {
-			logoutButton.dispatchEvent(
-				new MouseEvent('click', { bubbles: true, cancelable: true })
-			);
+		await waitFor(() => {
+			authStore.emitChange();
 		});
+
+		const logoutButton = document.getElementById('header__logout');
+
+		logoutButton.dispatchEvent(
+			new MouseEvent('click', { bubbles: true, cancelable: true })
+		);
+
 		expect(authActions.signOut).toHaveBeenCalledTimes(1);
 	});
 });
